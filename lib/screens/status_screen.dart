@@ -1,14 +1,48 @@
+// import 'package:flutter/material.dart';
+
+
+// class StatusPage extends StatefulWidget {
+//   const StatusPage({ Key? key }) : super(key: key);
+
+//   @override
+//   _StatusPageState createState() => _StatusPageState();
+// }
+
+// class _StatusPageState extends State<StatusPage> {
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       floatingActionButton: Column(
+//         children: [
+//           Container(
+//             child: FloatingActionButton(
+//               backgroundColor: Colors.blueGrey[100],
+//               onPressed: () {},
+//               child: Icon(Icons.edit,color: Colors.blueGrey[900],)
+//             )
+//           )
+//         ]
+//       )
+//     );
+//   }
+// }
+ 
+   
 import 'package:flutter/material.dart';
 import 'package:ui/models/message_model.dart';
 import 'package:ui/screens/chat_screen.dart';
 import 'package:ui/screens/status_screen.dart';
 import 'package:ui/screens/status_screen.dart';
 
-class RecentChats extends StatelessWidget {
+class StatusPage extends StatelessWidget {
+  var onPressed;
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
+     
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
@@ -16,6 +50,10 @@ class RecentChats extends StatelessWidget {
             topRight: Radius.circular(30.0),
           ),
         ),
+        //  floatingActionButton:FloatingActionButton(onPressed: () {},
+        // child: Icon(Icons.chat) 
+        
+        // )
         child: ClipRRect(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(30.0),
@@ -26,26 +64,36 @@ class RecentChats extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               final Message chat = chats[index];
               return GestureDetector(
+                
                 onTap: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => ChatScreen(
-                      user: chat.sender,
+
+                    builder: (_) => StatusPage(
+                      // user: chat.sender,
+                    
                     ),
                   ),
+                  
+                 //  floatingActionButton:FloatingActionButton(onPressed: () {},
+        // child: Icon(Icons.chat) 
+        
+        // ) 
                 ),
+                
+                
                 child: Container(
                   margin: EdgeInsets.only(top: 5.0, bottom: 5.0, right: 20.0),
                   padding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
                   decoration: BoxDecoration(
-                    color: chat.unread ? Color(0xFFFFEFEE) : Colors.white,
+                    color: chat.unread ? Color(0x73000000) : Colors.white,
                     borderRadius: BorderRadius.only(
                       topRight: Radius.circular(20.0),
                       bottomRight: Radius.circular(20.0),
                     ),
                   ),
-                  child: Row(
+                  child:Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Row(
@@ -61,8 +109,8 @@ class RecentChats extends StatelessWidget {
                               Text(
                                 chat.sender.name,
                                 style: TextStyle(
-                                  color: Colors.grey,
-                                  fontSize: 15.0,
+                                  color: Colors.black54,
+                                  fontSize: 20.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -72,8 +120,8 @@ class RecentChats extends StatelessWidget {
                                 child: Text(
                                   chat.text,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
-                                    fontSize: 15.0,
+                                    color: Colors.black,
+                                    fontSize: 20.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                                   overflow: TextOverflow.ellipsis,
@@ -88,7 +136,7 @@ class RecentChats extends StatelessWidget {
                           Text(
                             chat.time,
                             style: TextStyle(
-                              color: Colors.grey,
+                              color: Colors.white60,
                               fontSize: 15.0,
                               fontWeight: FontWeight.bold,
                             ),
@@ -106,14 +154,16 @@ class RecentChats extends StatelessWidget {
                                   child: Text(
                                     'NEW',
                                     style: TextStyle(
-                                      color: Colors.white,
+                                      color: Colors.black,
                                       fontSize: 12.0,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                 )
-                              : Text(''),
+                              : Text('New'),
+                  
                         ],
+                        
                       ),
                     ],
                   ),
@@ -124,5 +174,8 @@ class RecentChats extends StatelessWidget {
         ),
       ),
     );
-  }
 }
+}
+
+
+

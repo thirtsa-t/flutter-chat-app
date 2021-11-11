@@ -12,6 +12,8 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+  get style => null;
+
   _buildMessage(Message message, bool isMe) {
     final Container msg = Container(
       margin: isMe
@@ -26,6 +28,7 @@ class _ChatScreenState extends State<ChatScreen> {
             ),
       padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 15.0),
       width: MediaQuery.of(context).size.width * 0.75,
+        
       decoration: BoxDecoration(
         color: isMe ? Theme.of(context).accentColor : Color(0xFFFFEFEE),
         borderRadius: isMe
@@ -41,14 +44,16 @@ class _ChatScreenState extends State<ChatScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+          
           Text(
             message.time,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.blueGrey,
               fontSize: 16.0,
               fontWeight: FontWeight.w600,
             ),
           ),
+          
           SizedBox(height: 8.0),
           Text(
             message.text,
@@ -96,17 +101,23 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
           Expanded(
             child: TextField(
+              keyboardType: TextInputType.multiline,
+              maxLines: 5,
+              minLines: 1,
               textCapitalization: TextCapitalization.sentences,
               onChanged: (value) {},
               decoration: InputDecoration.collapsed(
-                hintText: 'Send a message...',
+                hintText: 'TYPE a message...',
+                // prefixIcon:IconButton(icon: Icon(Icons.emoji_emotions,)onPressed: () {},
+                // )
+                // contentPadding: EdgeInsets.all(S)
               ),
             ),
           ),
           IconButton(
             icon: Icon(Icons.send),
             iconSize: 25.0,
-            color: Theme.of(context).primaryColor,
+            color: Color(0x73000000),
             onPressed: () {},
           ),
         ],
@@ -116,25 +127,89 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: dead_code
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
-        title: Text(
-          widget.user.name,
+        backgroundColor: Colors.red,
+        title:InkWell(
+          onTap: () {},
+        child: Container(
+          // ignore: prefer_const_constructors
+          margin:  EdgeInsets.all(8.0),
+        child: Column(
+            mainAxisAlignment :  MainAxisAlignment.start,
+            crossAxisAlignment:  CrossAxisAlignment.start,
+          children: [
+           Text(
+             widget.user.name,
           style: TextStyle(
             fontSize: 28.0,
             fontWeight: FontWeight.bold,
           ),
-        ),
-        elevation: 0.0,
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.more_horiz),
-            iconSize: 30.0,
-            color: Colors.white,
-            onPressed: () {},
           ),
-        ],
+        
+         Text(
+             "Last seen today 12:30pm",
+        style: TextStyle(
+              fontSize: 13,
+            ),
+            )
+      
+          ],
+        ),
+      ),
+        ),
+      
+        
+       actions: <Widget>[
+          
+           IconButton(
+            icon: Icon(Icons.videocam),
+            iconSize: 30.0,
+             color: Colors.black,
+             onPressed: () {}),
+              IconButton(
+            icon: Icon(Icons.call),
+            iconSize: 30.0,
+             color: Colors.black,
+             onPressed: () {},
+           ),
+           PopupMenuButton<String>(onSelected: (value) {
+            
+              // ignore: avoid_print
+              print(value);
+            }, 
+            icon: Icon(Icons.more_vert, color: Colors.black,),
+            itemBuilder: (BuildContext context) {
+             return [
+                const PopupMenuItem(
+                  child: Text("View contact"),
+                  value: "View contact",
+                ),
+                const PopupMenuItem(
+                  child: Text("Media,links,dots"),
+                  value: "Media,links,dots",
+                ),
+                const PopupMenuItem(
+                  child: Text("KLab web"),
+                  value: "Klab Web",
+                ),
+                const PopupMenuItem(
+                  child: Text("Search"),
+                  value: "Search",
+                ),
+                const PopupMenuItem(
+                  child: Text("Mute,Notification"),
+                  value: "Mute,Notification",
+                ),
+                const PopupMenuItem(
+                  child: Text("Wallpaper"),
+                  value: "wallpaper",
+                  ),
+              ];
+            })
+         ],
       ),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
@@ -171,6 +246,13 @@ class _ChatScreenState extends State<ChatScreen> {
           ],
         ),
       ),
-    );
+      ); 
+    
+
   }
 }
+
+class S {
+}
+
+

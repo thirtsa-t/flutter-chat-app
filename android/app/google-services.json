@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "912332996961",
+    "project_id": "klab-chatapp",
+    "storage_bucket": "klab-chatapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:912332996961:android:5dc4c0025c97c651520520",
+        "android_client_info": {
+          "package_name": "com.example.ui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "912332996961-lsonfuke91ernimv7npqrmma58rvl6rj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsifFC1eDLHJ3-iVQIPuUhqTPh9pHXIqA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "912332996961-lsonfuke91ernimv7npqrmma58rvl6rj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
