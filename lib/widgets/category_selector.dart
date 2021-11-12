@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui/screens/status_screen.dart';
 
+
 class CategorySelector extends StatefulWidget {
   @override
   _CategorySelectorState createState() => _CategorySelectorState();
@@ -9,7 +10,7 @@ class CategorySelector extends StatefulWidget {
 class _CategorySelectorState extends State<CategorySelector> {
   int selectedIndex = 0;
   final List<String> categories = ['Messages', 'Status', 'Groups', 'Calls'];
-// ignore: prefer_typing_uninitialized_variables
+
 
  @override
   Widget build(BuildContext context) {
@@ -33,6 +34,9 @@ class _CategorySelectorState extends State<CategorySelector> {
               ),
               child: Text(
                 categories[index],
+                
+                
+
                 style: TextStyle(
                   color: index == selectedIndex ? Colors.white : Colors.white60,
                   fontSize: 24.0,

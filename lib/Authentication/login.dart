@@ -369,6 +369,10 @@ class _LoginScreen extends State<LoginScreen>{
                          height: 60, width: double.infinity,
                          child:RaisedButton(
                                   onPressed: (){
+                                     Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomeScreen()),
+            );
                                      setState(() {
                                         //show progress indicator on click
                                         showprogress = true;
@@ -401,10 +405,7 @@ class _LoginScreen extends State<LoginScreen>{
                        margin: EdgeInsets.only(top:20),
                        child: InkResponse(
                            onTap:(){
-                             Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => HomeScreen()),
-            );
+                            
                              
 
                               //action on tap

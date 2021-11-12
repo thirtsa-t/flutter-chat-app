@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:ui/models/message_model.dart';
 import 'package:ui/screens/chat_screen.dart';
 import 'package:ui/screens/status_screen.dart';
-import 'package:ui/screens/status_screen.dart';
+
 
 class RecentChats extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Container(
+     child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
@@ -122,7 +122,9 @@ class RecentChats extends StatelessWidget {
             },
           ),
         ),
-      ),
+      
+         
+     ),
     );
   }
 }
