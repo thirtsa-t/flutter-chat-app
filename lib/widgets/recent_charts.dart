@@ -39,7 +39,7 @@ class RecentChats extends StatelessWidget {
                   padding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
                   decoration: BoxDecoration(
-                    color: chat.unread ? Color(0xFFFFEFEE) : Colors.white,
+                    color: chat.unread ? Colors.blue.shade50 : Colors.white,
                     borderRadius: BorderRadius.only(
                       topRight: Radius.circular(20.0),
                       bottomRight: Radius.circular(20.0),
@@ -88,7 +88,7 @@ class RecentChats extends StatelessWidget {
                           Text(
                             chat.time,
                             style: TextStyle(
-                              color: Colors.grey,
+                               color: Colors.grey,
                               fontSize: 15.0,
                               fontWeight: FontWeight.bold,
                             ),

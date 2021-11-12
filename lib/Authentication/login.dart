@@ -184,6 +184,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:ui/screens/home_screen.dart';
+import 'package:ui/screens/bottom_nav_screen.dart';
 //import http package manually
 
 class LoginScreen extends StatefulWidget{
@@ -327,7 +328,7 @@ class _LoginScreen extends State<LoginScreen>{
                      ),
 
                      Container( 
-                        padding: EdgeInsets.fromLTRB(10,0,10,0),
+                         padding: EdgeInsets.fromLTRB(10,0,10,0),
                         margin: EdgeInsets.only(top:10),
                         child: TextField(
                           controller: _username, //set username controller
@@ -371,7 +372,7 @@ class _LoginScreen extends State<LoginScreen>{
                                   onPressed: (){
                                      Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => HomeScreen()),
+              MaterialPageRoute(builder: (context) => BottomNavScreen()),
             );
                                      setState(() {
                                         //show progress indicator on click
@@ -391,7 +392,7 @@ class _LoginScreen extends State<LoginScreen>{
                                        // if showprogress == true then show progress indicator 
                                        // else show "LOGIN NOW" text
                                   colorBrightness: Brightness.dark,
-                                  color: Colors.red,
+                                  color: Colors.blue,
                                   shape: RoundedRectangleBorder(
                                       borderRadius:BorderRadius.circular(30)
                                       //button corner radius
@@ -455,7 +456,7 @@ class _LoginScreen extends State<LoginScreen>{
             decoration: BoxDecoration( 
                borderRadius: BorderRadius.circular(30),
                color: Colors.red,
-               border: Border.all(color:Colors.red, width:2)
+               border: Border.all(color:Colors.blue, width:2)
             ),
             child: Row(children: <Widget>[
                 Container(

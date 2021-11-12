@@ -31,12 +31,25 @@ class _StatusPageState extends State<StatusPage> {
           ),
           FloatingActionButton(
             onPressed: () {},
-            backgroundColor: Colors.redAccent[700],
+            backgroundColor: Colors.blue,
             elevation: 5, 
             child: Icon(Icons.camera_alt),
-          )
-        ]
-      )
+          ),
+           SizedBox(
+            height: 13,
+          ),
+          FloatingActionButton(
+            onPressed: () {},
+            backgroundColor: Colors.blue,
+            elevation: 5, 
+            child: const Icon(Icons.audiotrack,
+          ),
+           
+
+
+          ),
+        ],
+      ),
     );
   }
 }

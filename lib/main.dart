@@ -5,6 +5,7 @@ import 'package:ui/Authentication/Methods.dart';
 import 'package:ui/Authentication/login.dart';
 import 'package:ui/screens/home_screen.dart';
 import 'package:ui/screens/status_screen.dart';
+import 'package:ui/screens/bottom_nav_screen.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,8 +24,8 @@ class MyApp extends StatelessWidget {
       title: 'KLabchart',
            debugShowCheckedModeBanner: false,
       theme: ThemeData(
-       primaryColor: Colors.red,
-        accentColor: Color(0xFFFEF9EB),
+       primaryColor: Colors.blue.shade300,
+        accentColor: Colors.blue.shade50,
       ),
       home: LoginScreen(),
       

@@ -8,24 +8,31 @@ import 'package:ui/widgets/favorite_contacts.dart';
 import 'package:ui/widgets/recent_charts.dart';
 import 'package:ui/screens/group_screen.dart';
 
+
+ 
+
+
+
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  State<HomeScreen> createState() => _HomeScreen();
 }
 
-class _HomeScreenState extends State<HomeScreen>  with SingleTickerProviderStateMixin {
-  late TabController _controller;
-  @override
-  void initState() {
-    super.initState();
-    _controller = TabController(length: 4, vsync: this, initialIndex: 1);
-  }
+
+class _HomeScreen extends State<HomeScreen> {
+ 
+ 
+
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // backgroundColor: Theme.of(context).primaryColor,
-        appBar: AppBar(
-          backgroundColor: Colors.red,
+      backgroundColor: Colors.blue.shade300,
+      appBar: AppBar(
+          // backgroundColor: Colors.red,
           title: Image.asset('assets/logos/logo1.jpg',
               fit: BoxFit.contain, height: 42),
           toolbarHeight: 68,
@@ -33,14 +40,14 @@ class _HomeScreenState extends State<HomeScreen>  with SingleTickerProviderState
             IconButton(
                 icon: Icon(Icons.search),
                 iconSize: 30.0,
-                color: Colors.black,
+                color: Colors.white,
                 onPressed: () {}),
             PopupMenuButton<String>(onSelected: (value) {
             
               // ignore: avoid_print
               print(value);
             }, 
-            icon: Icon(Icons.more_vert, color: Colors.black,),
+            icon: Icon(Icons.more_vert, color: Colors.white),
             itemBuilder: (BuildContext context) {
              return [
                 const PopupMenuItem(
@@ -68,8 +75,10 @@ class _HomeScreenState extends State<HomeScreen>  with SingleTickerProviderState
             }
             )
           ],
-        
-  
+      ),
+      
+      
+     
       //     bottom: TabBar(
       //      controller: _controller,
       //     indicatorColor: Colors.white,
@@ -79,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen>  with SingleTickerProviderState
       //       ),
       //       Tab(
       //         text: "CHATS",
-      //       ),
+      //       )
       //       Tab(
       //         text: "STATUS",
       //       ),
@@ -100,12 +109,12 @@ class _HomeScreenState extends State<HomeScreen>  with SingleTickerProviderState
       //   ],
       // ),
     
-        ),
+        
         body: Column(
           children: <Widget>[
-            CategorySelector(
+            // CategorySelector(
                
-            ),
+            // ),
              
             Expanded(
               child: Container(

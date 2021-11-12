@@ -30,7 +30,7 @@ class _ChatScreenState extends State<ChatScreen> {
       width: MediaQuery.of(context).size.width * 0.75,
         
       decoration: BoxDecoration(
-        color: isMe ? Theme.of(context).accentColor : Color(0xFFFFEFEE),
+        color: isMe ? Theme.of(context).accentColor : const Color(0xFFFFEFEE),
         borderRadius: isMe
             ? BorderRadius.only(
                 topLeft: Radius.circular(15.0),
@@ -131,7 +131,7 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.blue,
         title:InkWell(
           onTap: () {},
         child: Container(
@@ -167,7 +167,7 @@ class _ChatScreenState extends State<ChatScreen> {
            IconButton(
             icon: Icon(Icons.videocam),
             iconSize: 30.0,
-             color: Colors.black,
+             color: Colors.white,
              onPressed: () {}),
               IconButton(
             icon: Icon(Icons.call),
@@ -180,7 +180,7 @@ class _ChatScreenState extends State<ChatScreen> {
               // ignore: avoid_print
               print(value);
             }, 
-            icon: Icon(Icons.more_vert, color: Colors.black,),
+            icon: Icon(Icons.more_vert, color: Colors.white),
             itemBuilder: (BuildContext context) {
              return [
                 const PopupMenuItem(
