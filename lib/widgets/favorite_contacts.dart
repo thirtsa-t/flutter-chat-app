@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:ui/models/message_model.dart';
 import 'package:ui/screens/chat_screen.dart';
 
 class FavoriteContacts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 10.0),
+  return Padding(
+ 
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: Column(
         children: <Widget>[
           Padding(
+            
             padding: EdgeInsets.symmetric(horizontal: 20.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -35,7 +38,7 @@ class FavoriteContacts extends StatelessWidget {
             ),
           ),
           Container(
-            height: 120.0,
+          height: 120.0,
             child: ListView.builder(
               padding: EdgeInsets.only(left: 10.0),
               scrollDirection: Axis.horizontal,
@@ -56,6 +59,7 @@ class FavoriteContacts extends StatelessWidget {
                       children: <Widget>[
                         CircleAvatar(
                           radius: 35.0,
+                           
                           backgroundImage:
                               AssetImage(favorites[index].imageUrl),
                         ),
