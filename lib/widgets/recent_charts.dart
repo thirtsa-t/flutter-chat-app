@@ -125,6 +125,7 @@ class RecentChats extends StatelessWidget {
       
          
      ),
+     
     );
   }
 }

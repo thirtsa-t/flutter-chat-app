@@ -122,21 +122,21 @@ class _StatusPageState extends State<StatusPage> {
             ),
             ),
           ),
-          OtherStatus(
-            name: "steven",
-            imageName: "assets/images/steven.jpg",
-            time: "02:23",
-          ),
-           OtherStatus(
-            name: "gentille",
-            imageName: "assets/images/gentille.jpg",
-            time: "05:23",
-          ),
-           OtherStatus( 
-            name: "sam",
-            imageName: "assets/images/sam.jpg",
-            time: "03:23",
-          ),
+          // OtherStatus(
+          //   name: "steven",
+          //   imageName: "assets/images/steven.jpg",
+          //   time: "02:23",
+          // ),
+          //  OtherStatus(
+          //   name: "gentille",
+          //   imageName: "assets/images/gentille.jpg",
+          //   time: "05:23",
+          // ),
+          //  OtherStatus( 
+          //   name: "sam",
+          //   imageName: "assets/images/sam.jpg",
+          //   time: "03:23",
+          // ),
         ],
         ),
 
@@ -144,4 +144,3 @@ class _StatusPageState extends State<StatusPage> {
     );
   }
 }
- 

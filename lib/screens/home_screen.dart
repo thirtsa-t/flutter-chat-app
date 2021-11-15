@@ -21,7 +21,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 
-class _HomeScreen extends State<HomeScreen> {
+class _HomeScreen extends State<HomeScreen>  with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+   @override
+  void initState() {
+    _tabController = new TabController(length: 4, initialIndex: 1, vsync: this)
+      ..addListener(() {
+        setState(() {});
+      });
+    super.initState();
+  }
  
  
 
@@ -155,7 +165,17 @@ class _HomeScreen extends State<HomeScreen> {
             ),
           ],
         ),
-        
+        floatingActionButton: _tabController.index == 1  ? FloatingActionButton(
+  onPressed: (){},
+  backgroundColor: Theme.of(context).primaryColorLight,
+  child:Icon(Icons.message
+  
+  ) ,):FloatingActionButton(
+  onPressed: (){},
+  backgroundColor: Theme.of(context).primaryColorLight,
+  child:Icon(Icons.camera_alt
+  
+  ) ,) ,
         );
   }
 }

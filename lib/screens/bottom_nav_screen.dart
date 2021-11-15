@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui/models/message_model.dart';
+import 'package:ui/screens/calls.dart';
+import 'package:ui/screens/chat_screen.dart';
 import 'package:ui/screens/home_screen.dart';
 import 'package:ui/screens/status_screen.dart';
 
@@ -14,9 +16,9 @@ class BottomNavScreen extends StatefulWidget {
 class _BottomNavScreenState extends State<BottomNavScreen> {
   final List _screens = [
     const HomeScreen(),
-     StatusPage(),
+    StatusPage(),
   
-  ];
+];
   int _currentIndex = 0;
 
   @override
