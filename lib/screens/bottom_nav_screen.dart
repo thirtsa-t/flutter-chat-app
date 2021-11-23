@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:ui/models/message_model.dart';
 import 'package:ui/screens/calls.dart';
 import 'package:ui/screens/chat_screen.dart';
+import 'package:ui/screens/forum.dart';
 import 'package:ui/screens/home_screen.dart';
+
 import 'package:ui/screens/status_screen.dart';
 
 
@@ -17,6 +19,9 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   final List _screens = [
     const HomeScreen(),
     StatusPage(),
+    ForumScreen(),
+    
+    
   
 ];
   int _currentIndex = 0;
@@ -30,39 +35,57 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
         onTap: (index) => setState(() => _currentIndex = index),
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        selectedItemColor: Colors.white,
+        // showSelectedLabels: false,
+        // showUnselectedLabels: false,
+        // selectedItemColor: Colors.white,
         unselectedItemColor: Colors.blue.shade300,
         elevation: 0.0,
         items: [
-          Icons.message,
-           Icons.circle_notifications,
-          Icons.group,
-          Icons.call,
-        ]
-            .asMap()
-            .map((key, value) => MapEntry(
-                  key,
-                  BottomNavigationBarItem(
-                    title: Text(''),
-                    icon: Container(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 6.0,
-                        horizontal: 16.0,
-                      ),
-                      decoration: BoxDecoration(
-                        color: _currentIndex == key
-                            ? Colors.blue
-                            : Colors.transparent,
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      child: Icon(value),
-                    ),
-                  ),
-                ))
-            .values
-            .toList(),
+         BottomNavigationBarItem(
+           icon: Icon(Icons.chat),
+           title: Text('Chat'),
+           backgroundColor: Colors.blue.shade300
+           ),
+           BottomNavigationBarItem(
+           icon: Icon(Icons.group),
+           title: Text('Groups'),
+           backgroundColor: Colors.blue.shade300
+           ),
+           BottomNavigationBarItem(
+           icon: Icon(Icons.announcement),
+           title: Text('Forum'),
+           backgroundColor: Colors.blue.shade300
+           ),
+           BottomNavigationBarItem(
+           icon: Icon(Icons.forum),
+           title: Text('Announcement'),
+           backgroundColor: Colors.blue.shade300
+           ),
+           
+        ],
+      
+            // .asMap()
+            // .map((key, value) => MapEntry(
+            //       key,
+            //       BottomNavigationBarItem(
+            //         title: Text(''),
+            //         icon: Container(
+            //           padding: const EdgeInsets.symmetric(
+            //             vertical: 6.0,
+            //             horizontal: 16.0,
+            //           ),
+            //           decoration: BoxDecoration(
+            //             color: _currentIndex == key
+            //                 ? Colors.blue
+            //                 : Colors.transparent,
+            //             borderRadius: BorderRadius.circular(5.0),
+            //           ),
+            //           // child: Icon(value),
+            //         ),
+            //       ),
+            //     ))
+            // .values
+            // .toList(),
       ),
     );
   }

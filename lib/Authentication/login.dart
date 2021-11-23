@@ -206,7 +206,7 @@ class _LoginScreen extends State<LoginScreen>{
 
   startLogin() async {
    
-     String apiurl = "http://localhost/php/login.php"; //api url
+     String apiurl = ""; //api url
      //dont use http://localhost , because emulator don't get that address
      //insted use your local IP address or use live URL
      //hit "ipconfig" in windows or "ip a" in linux to get you local IP
@@ -218,8 +218,8 @@ class _LoginScreen extends State<LoginScreen>{
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "POST, GET, OPTIONS, PUT, DELETE, HEAD",},
         body: {
-        'username': username, //get the username text
-        'password': password  //get password text
+        'username': _username.text, //get the username text
+        'password': _password.text  //get password text
      });
        
      if(response.statusCode == 200){
@@ -370,10 +370,10 @@ class _LoginScreen extends State<LoginScreen>{
                          height: 60, width: double.infinity,
                          child:RaisedButton(
                                   onPressed: (){
-                                     Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => BottomNavScreen()),
-            );
+            //                          Navigator.push(
+            //   context,
+            //   MaterialPageRoute(builder: (context) => BottomNavScreen()),
+            // );
                                      setState(() {
                                         //show progress indicator on click
                                         showprogress = true;

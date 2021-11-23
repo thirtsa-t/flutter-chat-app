@@ -105,7 +105,63 @@ class _StatusPageState extends State<StatusPage> {
           //   height: 10,
           // ),
           HeadOwnStatus(),
-          Container(
+          label("Recent Update"),
+          
+           OtherStatus(
+            name: "steven",
+             imageName: "assets/images/steven.jpg",
+             time: "02:23",
+              isSeen: false,
+             statusNum: 15,
+           ),
+          OtherStatus(
+             name: "gentille",
+            imageName: "assets/images/gentille.jpg",
+             time: "05:23",
+             isSeen: false,
+             statusNum: 2,
+          ),
+           OtherStatus( 
+            name: "sam",
+            imageName: "assets/images/sam.jpg",
+            time: "03:23",
+             isSeen: false,
+             statusNum: 3,
+           ),
+           SizedBox(
+             height: 10,
+           ),
+           label("Viewed updates"),
+              OtherStatus(
+            name: "john",
+             imageName: "assets/images/john.jpg",
+             time: "02:23",
+              isSeen: true,
+             statusNum: 10,
+           ),
+          OtherStatus(
+             name: "thirtsa",
+            imageName: "assets/images/thirtsa.jpg",
+             time: "05:23",
+              isSeen: true,
+             statusNum: 1,
+          ),
+           OtherStatus( 
+            name: "sam",
+            imageName: "assets/images/sam.jpg",
+            time: "03:23",
+             isSeen: true,
+             statusNum: 1,
+           ),
+        ],
+        ),
+
+      ),
+    );
+  }
+  Widget label(String labelname) {
+    return Container(
+    
             height: 33,
             width: MediaQuery.of(context).size.width,
             color: Colors.grey[300],
@@ -114,33 +170,15 @@ class _StatusPageState extends State<StatusPage> {
               const EdgeInsets.symmetric(horizontal: 13, vertical: 7),
             
             child: Text(
-              "Recent updates",
+              labelname,
               style: TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.bold,
               ),
             ),
             ),
-          ),
-          // OtherStatus(
-          //   name: "steven",
-          //   imageName: "assets/images/steven.jpg",
-          //   time: "02:23",
-          // ),
-          //  OtherStatus(
-          //   name: "gentille",
-          //   imageName: "assets/images/gentille.jpg",
-          //   time: "05:23",
-          // ),
-          //  OtherStatus( 
-          //   name: "sam",
-          //   imageName: "assets/images/sam.jpg",
-          //   time: "03:23",
-          // ),
-        ],
-        ),
-
-      ),
-    );
+          );
   }
 }
+
+

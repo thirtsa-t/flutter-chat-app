@@ -1,11 +1,12 @@
 // import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:ui/Authentication/Authenticate.dart';
-import 'package:ui/Authentication/Methods.dart';
+
 import 'package:ui/Authentication/login.dart';
 import 'package:ui/screens/home_screen.dart';
 import 'package:ui/screens/status_screen.dart';
 import 'package:ui/screens/bottom_nav_screen.dart';
+
+import 'Authentication/signup.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
        primaryColor: Colors.blue.shade300,
         accentColor: Colors.blue.shade50,
       ),
-      home: LoginScreen(),
+      home:BottomNavScreen(),
       
     );
   }
