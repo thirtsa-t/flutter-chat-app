@@ -37,6 +37,11 @@ dependencies:
   http: ^0.13.1
   select_form_field: ^2.2.0
   google_fonts:
+  dashed_circle: ^0.0.2
+  story: ^0.5.1
+
+
+  
   
 
   # The following adds the Cupertino Icons font to your application.

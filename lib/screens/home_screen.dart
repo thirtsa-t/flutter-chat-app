@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:ui/screens/selectcontact.dart';
 import 'package:ui/screens/status_screen.dart';
 import 'package:ui/screens/status_screen.dart';
 import 'package:ui/widgets/category_selector.dart';
@@ -165,17 +166,25 @@ class _HomeScreen extends State<HomeScreen>  with SingleTickerProviderStateMixin
             ),
           ],
         ),
-        floatingActionButton: _tabController.index == 1  ? FloatingActionButton(
-  onPressed: (){},
-  backgroundColor: Theme.of(context).primaryColorLight,
-  child:Icon(Icons.message
-  
-  ) ,):FloatingActionButton(
-  onPressed: (){},
-  backgroundColor: Theme.of(context).primaryColorLight,
-  child:Icon(Icons.camera_alt
-  
-  ) ,) ,
+        floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Container(
+            height:48,
+            child: FloatingActionButton(
+              backgroundColor: Colors.blueGrey[100],
+              onPressed: () {
+                     Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SelectContacts()),
+             );
+              },
+              child: Icon(Icons.chat,color: Colors.blueGrey[900],
+              ),
+            ),
+          ),
+        ]
+        ),
         );
   }
 }
