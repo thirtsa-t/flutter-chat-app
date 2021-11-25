@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:ui/models/message_model.dart';
+import 'package:ui/screens/announcement.dart';
 import 'package:ui/screens/calls.dart';
 import 'package:ui/screens/chat_screen.dart';
 import 'package:ui/screens/forum.dart';
 import 'package:ui/screens/home_screen.dart';
+import 'package:ui/screens/post_details_page.dart';
 
 import 'package:ui/screens/status_screen.dart';
 
@@ -19,8 +21,8 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   final List _screens = [
     const HomeScreen(),
     StatusPage(),
-    ForumScreen(),
-    
+    PostWidget(),
+    announcementScreen(),
     
   
 ];

@@ -370,10 +370,10 @@ class _LoginScreen extends State<LoginScreen>{
                          height: 60, width: double.infinity,
                          child:RaisedButton(
                                   onPressed: (){
-            //                          Navigator.push(
-            //   context,
-            //   MaterialPageRoute(builder: (context) => BottomNavScreen()),
-            // );
+                                     Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => BottomNavScreen()),
+            );
                                      setState(() {
                                         //show progress indicator on click
                                         showprogress = true;
