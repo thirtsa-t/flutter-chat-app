@@ -145,18 +145,18 @@ import 'package:ui/screens/upload_post_page.dart';
 class PostWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
+  
     return Scaffold(
       backgroundColor: Colors.grey,
       appBar:AppBar(
-        backgroundColor: Colors.white,
-        title: Text("Blog App",textAlign: TextAlign.center, style: TextStyle(color: Colors.black,),
+        backgroundColor: Colors.blue.shade300,
+        title: Text("Forum",textAlign: TextAlign.center, style: TextStyle(color: Colors.white,),
         ),
          actions: [
             // action button
             IconButton(
               icon: Icon( Icons.add ),
-              color: Colors.black,
+              color: Colors.white,
               onPressed: () { 
                  Navigator.push(
               context,
@@ -168,7 +168,7 @@ class PostWidget extends StatelessWidget {
           ],
           leading: IconButton(
             icon: Icon( Icons.person ),
-            color: Colors.black,
+            color: Colors.white,
             onPressed: () { 
                 Navigator.push(
               context,
@@ -179,9 +179,13 @@ class PostWidget extends StatelessWidget {
           ),
 
     body:ListView.builder(
-      shrinkWrap: true,
+     
+      
+      // shrinkWrap: true,
       itemCount: postList.length,
         scrollDirection: Axis.vertical,
+        
+        
       padding: EdgeInsets.zero,
       itemBuilder: (BuildContext context, int index) {
         return Container(
@@ -196,10 +200,14 @@ class PostWidget extends StatelessWidget {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                
                 children: [
+                  
                   Row(
                     children: [
+                     
                       Container(
+                        
                         width: 48,
                         child: CircleAvatar(
                           backgroundImage:

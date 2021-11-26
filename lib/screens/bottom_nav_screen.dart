@@ -3,7 +3,7 @@ import 'package:ui/models/message_model.dart';
 import 'package:ui/screens/announcement.dart';
 import 'package:ui/screens/calls.dart';
 import 'package:ui/screens/chat_screen.dart';
-import 'package:ui/screens/forum.dart';
+
 import 'package:ui/screens/home_screen.dart';
 import 'package:ui/screens/post_details_page.dart';
 

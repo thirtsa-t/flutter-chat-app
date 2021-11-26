@@ -13,8 +13,8 @@ class announcementScreen extends StatelessWidget {
     
     return Scaffold(
       appBar: AppBar(
-        title: Text("Flutter ReadMore"),
-        backgroundColor: Colors.green[700],
+        title: Text("Announcement"),
+      backgroundColor: Colors.blue.shade300,
         centerTitle: true,
         brightness: Brightness.dark,
       ),
@@ -30,11 +30,11 @@ class announcementScreen extends StatelessWidget {
             trimExpandedText: " Show Less ",
             lessStyle: TextStyle(
               fontWeight: FontWeight.bold,
-              color: Colors.green[700],
+              color: Colors.blue.shade300,
             ),
             moreStyle: TextStyle(
               fontWeight: FontWeight.bold,
-              color: Colors.green[700],
+              color: Colors.blue.shade300,
             ),
             style: TextStyle(
               fontSize: 16,
