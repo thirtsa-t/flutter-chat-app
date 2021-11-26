@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
        primaryColor: Colors.blue.shade300,
         accentColor: Colors.blue.shade50,
       ),
-      home:RegisterScreen(),
+      home:LoginScreen(),
       
     );
   }
