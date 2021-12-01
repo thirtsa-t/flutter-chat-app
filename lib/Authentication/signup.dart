@@ -1,7 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:ui/Authentication/inputdecoration.dart';
+import 'package:ui/Authentication/login.dart';
+import 'inputdecoration.dart';
 import 'package:http/http.dart' as http;
 
 class RegistrationScreen extends StatefulWidget {
@@ -21,7 +22,16 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      backgroundColor: Colors.blueGrey[50],
+       body: Center(
+            child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(30.0),
+                    topRight: Radius.circular(30.0),
+                  ),
+                ),
         child: SingleChildScrollView(
           child: Form(
             key: _formkey,
@@ -36,31 +46,31 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 SizedBox(
                   height: 15,
                 ),
-                Padding(
+               Padding(
                   padding:
-                      const EdgeInsets.only(bottom: 15, left: 10, right: 10),
+                  const EdgeInsets.only(bottom: 15, left: 10, right: 10),
                   child: TextFormField(
                     controller: _name,
                     keyboardType: TextInputType.text,
                     decoration: buildInputDecoration(Icons.person, "Full Name"),
-                    validator: (value) {
-                      if (value!.isEmpty) {
+                    validator: ( value) {
+                      if (value == null || value.isEmpty) {
                         return "Please enter name";
                       }
                       return null;
                     },
-                    onSaved: ( name) {},
+                    onSaved: (name) {},
                   ),
                 ),
                 Padding(
                   padding:
-                      const EdgeInsets.only(bottom: 15, left: 10, right: 10),
+                  const EdgeInsets.only(bottom: 15, left: 10, right: 10),
                   child: TextFormField(
                     controller: _email,
                     keyboardType: TextInputType.text,
                     decoration: buildInputDecoration(Icons.email, "Email"),
                     validator: ( value) {
-                      if (value!.isEmpty) {
+                      if (value == null || value.isEmpty) {
                         return "Please enter  email";
                       }
                       if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
@@ -69,37 +79,37 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       }
                       return null;
                     },
-                    onSaved: ( email) {},
+                    onSaved: (email) {},
                   ),
                 ),
                 Padding(
                   padding:
-                      const EdgeInsets.only(bottom: 15, left: 10, right: 10),
+                  const EdgeInsets.only(bottom: 15, left: 10, right: 10),
                   child: TextFormField(
                     controller: _phone,
                     keyboardType: TextInputType.number,
                     decoration: buildInputDecoration(Icons.phone, "Phone No"),
-                    validator: ( value) {
-                      if (value!.isEmpty) {
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
                         return "Please enter  phone";
                       }
-                      if (value.length < 9) {
+                      if (value.length < 10) {
                         return "Please enter valid phone";
                       }
                       return null;
                     },
-                    onSaved: ( phone) {},
+                    onSaved: (phone) {},
                   ),
                 ),
                 Padding(
                   padding:
-                      const EdgeInsets.only(bottom: 15, left: 10, right: 10),
+                  const EdgeInsets.only(bottom: 15, left: 10, right: 10),
                   child: TextFormField(
                     controller: _password,
                     keyboardType: TextInputType.text,
                     decoration: buildInputDecoration(Icons.lock, "Password"),
-                    validator: ( value) {
-                      if (value!.isEmpty) {
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
                         return "Please enter password";
                       }
 
@@ -109,15 +119,15 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 ),
                 Padding(
                   padding:
-                      const EdgeInsets.only(bottom: 15, left: 10, right: 10),
+                  const EdgeInsets.only(bottom: 15, left: 10, right: 10),
                   child: TextFormField(
                     controller: _confirmpassword,
                     obscureText: true,
                     keyboardType: TextInputType.text,
                     decoration:
-                        buildInputDecoration(Icons.lock, "Confirm Password"),
-                    validator: ( value) {
-                      if (value!.isEmpty) {
+                    buildInputDecoration(Icons.lock, "Confirm Password"),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
                         return "Please enter re-password";
                       }
                       if (_password.text != _confirmpassword.text) {
@@ -133,6 +143,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   child: RaisedButton(
                     color: const Color(0xFF2B5894),
                     onPressed: () {
+                         Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => LoginScreen()),
+            );
                       if (_formkey.currentState!.validate()) {
                         RegistrationUser();
                         print("Successful");
@@ -152,14 +166,15 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
         ),
       ),
+         )
     );
   }
 
   Future RegistrationUser() async {
     // url to registration php script
-
+    print("submitting");
     var url = Uri.http(
-        'localhost', '/klab/api/members/register.php', {'q': '{http}'});
+        'localhost', '/Klabchat/api/members/register.php', {'q': '{http}'});
 
     //json maping user entered details
     Map mapeddate = {
