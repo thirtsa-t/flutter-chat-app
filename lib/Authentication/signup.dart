@@ -11,7 +11,8 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
-  TextEditingController _name = TextEditingController();
+  TextEditingController _fname = TextEditingController();
+  TextEditingController _lname = TextEditingController();
   TextEditingController _email = TextEditingController();
   TextEditingController _phone = TextEditingController();
   TextEditingController _password = TextEditingController();
@@ -50,16 +51,32 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   padding:
                   const EdgeInsets.only(bottom: 15, left: 10, right: 10),
                   child: TextFormField(
-                    controller: _name,
+                    controller: _fname,
                     keyboardType: TextInputType.text,
-                    decoration: buildInputDecoration(Icons.person, "Full Name"),
+                    decoration: buildInputDecoration(Icons.person, "First Name"),
+                    validator: ( value) {
+                      if (value == null || value.isEmpty) {
+                        return "Please enter first name";
+                      }
+                      return null;
+                    },
+                    onSaved: (fname) {},
+                  ),
+                ),
+                Padding(
+                  padding:
+                  const EdgeInsets.only(bottom: 15, left: 10, right: 10),
+                  child: TextFormField(
+                    controller: _lname,
+                    keyboardType: TextInputType.text,
+                    decoration: buildInputDecoration(Icons.person, "Last Name"),
                     validator: ( value) {
                       if (value == null || value.isEmpty) {
                         return "Please enter name";
                       }
                       return null;
                     },
-                    onSaved: (name) {},
+                    onSaved: (lname) {},
                   ),
                 ),
                 Padding(
@@ -106,6 +123,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   const EdgeInsets.only(bottom: 15, left: 10, right: 10),
                   child: TextFormField(
                     controller: _password,
+                    obscureText: true,
                     keyboardType: TextInputType.text,
                     decoration: buildInputDecoration(Icons.lock, "Password"),
                     validator: (value) {
@@ -174,16 +192,16 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     // url to registration php script
     print("submitting");
     var url = Uri.http(
-        'localhost', '/Klabchat/api/members/register.php', {'q': '{http}'});
+        'localhost', '/klab/api/members/register.php', {'q': '{http}'});
 
     //json maping user entered details
     Map mapeddate = {
       'category_id': "1",
-      'member_fname': _name.text,
-      'member_lname': _name.text,
+      'member_fname': _fname.text,
+      'member_lname': _lname.text,
       'member_email': _email.text,
       'member_phone': _phone.text,
-      'password': _password.text
+      'member_password': _password.text
     };
     //send  data using http post to our php code
     http.Response reponse = await http.post(url, body: mapeddate);
