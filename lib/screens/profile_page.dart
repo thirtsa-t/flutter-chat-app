@@ -1,5 +1,12 @@
+
+
+// ignore_for_file: unnecessary_null_comparison
+
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:ui/screens/post_widget.dart';
+//  import 'package:image_picker/image_picker.dart';
 
 
 class ProfilePage extends StatefulWidget {
@@ -9,9 +16,11 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+   
+  
   @override
   Widget build(BuildContext context) {
-    var isUsingDarkTheme;
+    
     return Scaffold(
       backgroundColor: Colors.grey,
       appBar: AppBar(
@@ -19,14 +28,7 @@ class _ProfilePageState extends State<ProfilePage> {
         title: Text("profile",textAlign: TextAlign.center, style: TextStyle(color: Colors.black,),),
         actions: [
           
-          // Switch(value: Theme.of(context).DarkMode, onChanged: (bool value) {
-          // //   if(Theme.of(context).isUsingDark){
-          // //     Theme.of(context).themeMode = ThemeMode.light;
-          // //   }else{
-          // //     Theme.of(context).themeMode = ThemeMode.dark;
-          // //   }
-          // },
-          // ),
+         
         ],
           
       ),
