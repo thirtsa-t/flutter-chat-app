@@ -118,12 +118,12 @@ class _LoginScreenState extends State<LoginScreen> {
     // url to registration php script
     print("submitting");
     var url = Uri.http(
-        'localhost', '/Klabchat/api/members/login.php', {'q': '{http}'});
+        'localhost', '/klab/api/members/login.php', {'q': '{http}'});
 
     //json maping user entered details
     Map mapeddate = {
-      'id': "1",
-     'member_email': _email.text,
+
+     'email': _email.text,
      'password': _password.text
     };
     //send  data using http post to our php code
