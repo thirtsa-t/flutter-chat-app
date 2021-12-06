@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
+import 'package:ui/screens/addannouncement.dart';
+import 'package:ui/screens/upload_post_page.dart';
 
 
 class announcementScreen extends StatelessWidget {
@@ -17,6 +19,21 @@ class announcementScreen extends StatelessWidget {
       backgroundColor: Colors.blue.shade300,
         centerTitle: true,
         brightness: Brightness.dark,
+
+         actions: [
+            // action button
+            IconButton(
+              icon: Icon( Icons.add ),
+              color: Colors.white,
+              onPressed: () { 
+                 Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => UploadAnnouncementPage()),
+             );
+              },
+            ),
+          
+          ],
       ),
       body: SingleChildScrollView(
         child: Container(

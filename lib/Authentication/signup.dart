@@ -1,9 +1,11 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ui/Authentication/login.dart';
 import 'inputdecoration.dart';
 import 'package:http/http.dart' as http;
+
 
 class RegistrationScreen extends StatefulWidget {
   @override
@@ -25,28 +27,35 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     return Scaffold(
       backgroundColor: Colors.blueGrey[50],
        body: Center(
-            child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(30.0),
-                    topRight: Radius.circular(30.0),
-                  ),
-                ),
-        child: SingleChildScrollView(
+      child: SingleChildScrollView(
           child: Form(
             key: _formkey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: <Widget> [
+            
                 CircleAvatar(
-                  radius: 70,
+                  radius: 50,
 
                   child: Image.asset("assets/images/klab.png"),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
+              const Center(
+                      child: Padding(
+                        padding: EdgeInsets.only(top: 20.0,bottom: 20.0),
+
+                        child: Text(
+                          'Register',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Color.fromRGBO(78, 53, 43, 1.0),
+                              fontSize: 40.0,                            
+                              fontWeight: FontWeight.w300),
+                        ),
+                      ),
+                    ),
                Padding(
                   padding:
                   const EdgeInsets.only(bottom: 15, left: 10, right: 10),
@@ -72,7 +81,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     decoration: buildInputDecoration(Icons.person, "Last Name"),
                     validator: ( value) {
                       if (value == null || value.isEmpty) {
-                        return "Please enter name";
+                        return "Please enter ypur lastname";
                       }
                       return null;
                     },
@@ -161,10 +170,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   child: RaisedButton(
                     color: const Color(0xFF2B5894),
                     onPressed: () {
-                         Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => LoginScreen()),
-            );
+            //              Navigator.push(
+            //   context,
+            //   MaterialPageRoute(builder: (context) => SigninScreen()),
+            // );
                       if (_formkey.currentState!.validate()) {
                         RegistrationUser();
                         print("Successful");
@@ -178,13 +187,37 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     textColor: Colors.white,
                     child: Text("Submit"),
                   ),
-                )
+                ),
+                  Row(
+                 mainAxisAlignment: MainAxisAlignment.center,
+                 children: <Widget>[
+                   Text("Don't have an account?",
+                   style: TextStyle(color: Colors.black),
+                   ),
+                   FlatButton(
+                     onPressed: () {
+                         Navigator.push(
+               context,
+               MaterialPageRoute(builder: (context) => SigninScreen()),
+             );
+                     },
+                     child:Text(
+                       "LOGIN",
+                       style: TextStyle(
+                         color: Colors.lightBlue[200],
+                         fontWeight: FontWeight.bold
+                       ),
+                                      
+                       ) )
+                   
               ],
             ),
+              ]
           ),
         ),
       ),
          )
+       
     );
   }
 
@@ -192,7 +225,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     // url to registration php script
     print("submitting");
     var url = Uri.http(
-        'localhost', '/klab/api/members/register.php', {'q': '{http}'});
+        'localhost', '/klabchat/api/members/register.php', {'q': '{http}'});
 
     //json maping user entered details
     Map mapeddate = {
@@ -209,6 +242,45 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     //getting response from php code, here
     var data = jsonDecode(reponse.body);
     print("DATA: ${data}");
+
+
+
+    if(data["code"] ==200)
+      {
+        var message = data["message"];
+        print(message);
+
+        final snackBar = SnackBar(
+          content: Text(message),
+          action: SnackBarAction(
+            label: 'Signin',
+            onPressed: () {
+              Navigator.push(context, CupertinoPageRoute(builder: (context)=> SigninScreen()));
+            },
+          ),
+        );
+
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        Navigator.push(context, CupertinoPageRoute(builder: (context)=> SigninScreen()));
+
+      }else{
+      var message = data["message"];
+      print(message);
+
+      final snackBar = SnackBar(
+        content: Text(message),
+        action: SnackBarAction(
+          label: 'Ok',
+          onPressed: () {
+
+          },
+        ),
+      );
+
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    }
+
+
 
   }
 }
