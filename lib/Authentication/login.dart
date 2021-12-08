@@ -156,7 +156,7 @@ class _SigninScreenState extends State<SigninScreen> {
     // url to registration php script
     print("submitting");
     var url = Uri.http(
-        'localhost', '/klabchat/api/members/login.php', {'q': '{http}'});
+        'klabchat.devslab.io/', 'api/members/login.php', {'q': '{http}'});
 
     //json maping user entered details
     Map mapeddate = {
