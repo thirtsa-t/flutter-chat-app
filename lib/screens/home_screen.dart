@@ -2,8 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:ui/screens/selectcontact.dart';
-import 'package:ui/screens/status_screen.dart';
-import 'package:ui/screens/status_screen.dart';
+
 import 'package:ui/widgets/category_selector.dart';
 import 'package:ui/widgets/favorite_contacts.dart';
 import 'package:ui/widgets/recent_charts.dart';

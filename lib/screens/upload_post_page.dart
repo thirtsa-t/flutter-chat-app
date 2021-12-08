@@ -157,7 +157,7 @@ class _UploadPostPageState extends State<UploadPostPage> {
     // url to registration php script
     print("Submitting");
     var url = Uri.http(
-        'klabchat.devslab.io/', 'post/post.php', {'q': '{http}'});
+        'klabchat.devslab.io', '/post/post.php', {'q': '{http}'});
 
     //json maping user entered details
     Map mapeddate = {
