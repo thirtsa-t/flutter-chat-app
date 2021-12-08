@@ -6,6 +6,7 @@ import 'package:ui/screens/chat_screen.dart';
 
 import 'package:ui/screens/home_screen.dart';
 import 'package:ui/screens/post_details_page.dart';
+import 'package:ui/models/chatmodelpage.dart';
 
 import 'package:ui/screens/status_screen.dart';
 
@@ -50,7 +51,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
            ),
            BottomNavigationBarItem(
            icon: Icon(Icons.group),
-           title: Text('Groups'),
+           title: Text('status'),
            backgroundColor: Colors.blue.shade300
            ),
            BottomNavigationBarItem(

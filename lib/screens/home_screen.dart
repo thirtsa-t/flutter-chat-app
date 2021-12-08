@@ -46,7 +46,9 @@ class _HomeScreen extends State<HomeScreen>  with SingleTickerProviderStateMixin
           // backgroundColor: Colors.red,
           title: Image.asset('assets/logos/logo1.jpg',
               fit: BoxFit.contain, height: 42),
+              
           toolbarHeight: 68,
+          
           actions: [
             IconButton(
                 icon: Icon(Icons.search),
