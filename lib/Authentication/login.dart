@@ -1,8 +1,10 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import '../screens/bottom_nav_screen.dart';
 import 'inputdecoration.dart';
 import 'package:http/http.dart' as http;
+
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -87,10 +89,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: RaisedButton(
                     color: const Color(0xFF2B5894),
                     onPressed: () {
-            //             Navigator.push(
-            //   context,
-            //   MaterialPageRoute(builder: (context) => LoginScreen()),
-            // );
+                        Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => BottomNavScreen()),
+            );
                       if (_formkey.currentState!.validate()) {
                         RegistrationUser();
                         print("Successful");
