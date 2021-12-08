@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class UploadPostPage extends StatefulWidget {
   const UploadPostPage({Key? key}) : super(key: key);
@@ -8,9 +11,17 @@ class UploadPostPage extends StatefulWidget {
 }
 
 class _UploadPostPageState extends State<UploadPostPage> {
-  var selectedCategoryId;
+  TextEditingController _member_id = TextEditingController();
+  TextEditingController _post_content = TextEditingController();
+
+
+  final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+
+  
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
         backgroundColor: Colors.blueGrey.shade50,
         appBar: AppBar(
@@ -39,75 +50,76 @@ class _UploadPostPageState extends State<UploadPostPage> {
         body: Center(
           child: SingleChildScrollView(
             child: Form(
+               key: _formkey,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: <Widget> [
                   // CircleAvatar(
                   //   radius: 70,
                   //   child: Image.asset("assets/images/klab.png"),
                   // ),
-                  // SizedBox(
-                  //   height: 15,
+                  //  SizedBox(
+                  //    height: 15,
+                  //  ),
+                  // Padding(
+                  //   padding: const EdgeInsets.only(
+                  //       left: 10.0, right: 10.0, top: 10, bottom: 0),
+                  //   //padding: EdgeInsets.symmetric(horizontal: 15),
+                  //   child: TextField(
+                       
+                  //     decoration: InputDecoration(
+                  //        filled: true,
+
+                  //        fillColor: Colors.white,
+                  //         border: OutlineInputBorder(),
+                  //         labelText: 'title',
+                  //         hintText: 'Enter  your title'),
+                  //   ),
                   // ),
                   Padding(
                     padding: const EdgeInsets.only(
                         left: 10.0, right: 10.0, top: 10, bottom: 0),
-                    //padding: EdgeInsets.symmetric(horizontal: 15),
-                    child: TextField(
+                    
+                    child: TextFormField(
+                      controller: _post_content,
                       decoration: InputDecoration(
-                         filled: true,
-
-                         fillColor: Colors.white,
-                          border: OutlineInputBorder(),
-                          labelText: 'title',
-                          hintText: 'Enter  your title'),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        left: 10.0, right: 10.0, top: 10, bottom: 0),
-                    //padding: EdgeInsets.symmetric(horizontal: 15),
-                    child: TextField(
-                      decoration: InputDecoration(
-                         filled: true,
-
-                         fillColor: Colors.white,
-                        labelText: 'Description',
-                        hintText: 'Enter  your Description',
                         
-                        border: OutlineInputBorder(),
-                       
-                      ),
+                         filled: true,
+
+                         fillColor: Colors.white,
+                        labelText: 'Content',
+                        hintText: 'Enter  your content',),
+                         validator: ( value) {
+                      if (value == null || value.isEmpty) {
+                        return "Please enter your content";
+                      }
+                      return null;
+                    },
+                    onSaved: (post_content) {},
+                      
                         minLines: 7,
                        maxLines: 7,
+                      
+                        
                     ),
                   ),
                    SizedBox(
-                  width: 400,
+                  width: 200,
                   height: 50,
-                  
                   child: RaisedButton(
-                     
                     color: const Color(0xFF2B5894),
                     onPressed: () {
-            //              Navigator.push(
-            //   context,
-            //   MaterialPageRoute(builder: (context) => SigninScreen()),
-            // );
-                      // if (_formkey.currentState!.validate()) {
-                      //   RegistrationUser();
-                      //   print("Successful");
-                      // } else {
-                      //   print("Unsuccessfull");
-                      // }
+            
+                      if (_formkey.currentState!.validate()) {
+                        postUser();
+                        print("Successful");
+                      } else {
+                        print("Unsuccessfull");
+                      }
                     },
                     shape: RoundedRectangleBorder(
-                         
                         borderRadius: BorderRadius.circular(50.0),
-                      
-                        side: BorderSide(color: Colors.white )),
-                        
-                       
+                        side: BorderSide(color: Colors.white, width: 2)),
                     textColor: Colors.black,
                     child: Text("Upload"),
                   ),
@@ -116,29 +128,48 @@ class _UploadPostPageState extends State<UploadPostPage> {
               ),
             ),
           ),
-        ));
+        )
+        );
   }
-  Widget imagepProfile(){
+
+  Widget imageProfile() {
     return Stack(
-children: <Widget>[
-  CircleAvatar(
-    radius: 80.0,
-    backgroundImage: AssetImage("assets/images/sam.jpg"),
-  ),    
-
-
-],
+      children: <Widget>[
+     CircleAvatar(
+       backgroundImage: AssetImage("assets/images/klab.png"),
+     )
+      ]
     );
   }
-  Widget nameTextField() {
-    return TextFormField(
-      decoration: InputDecoration(
-        border: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.teal,
-            )
-            )
-      ),
-    );
-  }
+ Widget nameTextField() {
+   return TextFormField(
+     decoration: InputDecoration(
+       border: OutlineInputBorder(
+         borderSide:BorderSide(
+           color: Colors. black,
+         )
+       )
+     ),
+   );
+ }
+
+  Future postUser() async {
+    // url to registration php script
+    print("Submitting");
+    var url = Uri.http(
+        'klabchat.devslab.io', '/post/post.php', {'q': '{http}'});
+
+    //json maping user entered details
+    Map mapeddate = {
+      'member_id': "1",
+      'post_content': _post_content.text,
+       };
+    //send  data using http post to our php code
+    http.Response reponse = await http.post(url, body: mapeddate);
+
+    //getting response from php code, here
+    var data = jsonDecode(reponse.body);
+    print("DATA: ${data}");
+ 
+}
 }

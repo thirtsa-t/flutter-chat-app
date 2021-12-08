@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:ui/models/post_list.dart';
-import 'package:ui/screens/profile_page.dart';
+import 'package:ui/screens/your_post.dart';
 import 'package:ui/screens/upload_post_page.dart';
 class PostWidget extends StatelessWidget {
   @override

@@ -2,8 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:ui/screens/selectcontact.dart';
-import 'package:ui/screens/status_screen.dart';
-import 'package:ui/screens/status_screen.dart';
+
 import 'package:ui/widgets/category_selector.dart';
 import 'package:ui/widgets/favorite_contacts.dart';
 import 'package:ui/widgets/recent_charts.dart';
@@ -44,7 +43,7 @@ class _HomeScreen extends State<HomeScreen>  with SingleTickerProviderStateMixin
       backgroundColor: Colors.blue.shade300,
       appBar: AppBar(
           // backgroundColor: Colors.red,
-          title: Image.asset('assets/logos/logo1.jpg',
+          title: Image.asset('assets/images/klab.png',
               fit: BoxFit.contain, height: 42),
               
           toolbarHeight: 68,

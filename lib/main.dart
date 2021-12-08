@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:ui/Authentication/login.dart';
 import 'package:ui/screens/home_screen.dart';
-import 'package:ui/screens/status_screen.dart';
+
 import 'package:ui/screens/bottom_nav_screen.dart';
 
 import 'Authentication/signup.dart';
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
        primaryColor: Colors.blue.shade300,
         accentColor: Colors.blue.shade50,
       ),
-      home:SigninScreen(),
+      home:BottomNavScreen(),
       
     );
   }

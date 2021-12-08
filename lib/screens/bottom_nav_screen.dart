@@ -3,12 +3,14 @@ import 'package:ui/models/message_model.dart';
 import 'package:ui/screens/announcement.dart';
 import 'package:ui/screens/calls.dart';
 import 'package:ui/screens/chat_screen.dart';
+import 'package:ui/screens/edit_setting.dart';
 
 import 'package:ui/screens/home_screen.dart';
+import 'package:ui/screens/my_profile.dart';
 import 'package:ui/screens/post_details_page.dart';
 import 'package:ui/models/chatmodelpage.dart';
 
-import 'package:ui/screens/status_screen.dart';
+
 
 
 class BottomNavScreen extends StatefulWidget {
@@ -21,10 +23,9 @@ class BottomNavScreen extends StatefulWidget {
 class _BottomNavScreenState extends State<BottomNavScreen> {
   final List _screens = [
     const HomeScreen(),
-    StatusPage(),
     PostWidget(),
     announcementScreen(),
-    
+    SettingsUI (),
   
 ];
   int _currentIndex = 0;
@@ -49,11 +50,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
            title: Text('Chat'),
            backgroundColor: Colors.blue.shade300
            ),
-           BottomNavigationBarItem(
-           icon: Icon(Icons.group),
-           title: Text('status'),
-           backgroundColor: Colors.blue.shade300
-           ),
+           
            BottomNavigationBarItem(
            icon: Icon(Icons.announcement),
            title: Text('Forum'),
@@ -64,6 +61,12 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
            title: Text('Announcement'),
            backgroundColor: Colors.blue.shade300
            ),
+           BottomNavigationBarItem(
+           icon: Icon(Icons.forum),
+           title: Text('My Account'),
+           backgroundColor: Colors.blue.shade300
+           ),
+           
            
         ],
       
