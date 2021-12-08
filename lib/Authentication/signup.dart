@@ -225,7 +225,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     // url to registration php script
     print("submitting");
     var url = Uri.http(
-        'localhost', '/klabchat/api/members/register.php', {'q': '{http}'});
+        'klabchat.devslab.io', '/api/members/register.php', {'q': '{http}'});
 
     //json maping user entered details
     Map mapeddate = {
