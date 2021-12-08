@@ -15,56 +15,48 @@ class SigninScreen extends StatefulWidget {
 class _SigninScreenState extends State<SigninScreen> {
   TextEditingController _email = TextEditingController();
   TextEditingController _password = TextEditingController();
- 
+
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-  
     return Scaffold(
       backgroundColor: Colors.blueGrey[50],
-      
-       body: Center(
-          
+      body: Center(
         child: SingleChildScrollView(
           child: Form(
             key: _formkey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget> [
-            
+              children: <Widget>[
                 CircleAvatar(
                   radius: 50,
-
                   child: Image.asset("assets/images/klab.png"),
                 ),
                 SizedBox(
                   height: 15,
                 ),
-              const Center(
-                      child: Padding(
-                        padding: EdgeInsets.only(top: 20.0,bottom: 20.0),
-
-                        child: Text(
-                          'Login',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: Color.fromRGBO(78, 53, 43, 1.0),
-                              fontSize: 40.0,                            
-                              fontWeight: FontWeight.w300),
-                        ),
-                      ),
+                const Center(
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
+                    child: Text(
+                      'Login',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Color.fromRGBO(78, 53, 43, 1.0),
+                          fontSize: 40.0,
+                          fontWeight: FontWeight.w300),
                     ),
-
-               
+                  ),
+                ),
                 Padding(
                   padding:
-                  const EdgeInsets.only(bottom: 15, left: 10, right: 10),
+                      const EdgeInsets.only(bottom: 15, left: 10, right: 10),
                   child: TextFormField(
                     controller: _email,
                     keyboardType: TextInputType.text,
                     decoration: buildInputDecoration(Icons.email, "Email"),
-                    validator: ( value) {
+                    validator: (value) {
                       if (value == null || value.isEmpty) {
                         return "Please enter  email";
                       }
@@ -77,10 +69,9 @@ class _SigninScreenState extends State<SigninScreen> {
                     onSaved: (email) {},
                   ),
                 ),
-              
                 Padding(
                   padding:
-                  const EdgeInsets.only(bottom: 15, left: 10, right: 10),
+                      const EdgeInsets.only(bottom: 15, left: 10, right: 10),
                   child: TextFormField(
                     controller: _password,
                     obscureText: true,
@@ -95,17 +86,16 @@ class _SigninScreenState extends State<SigninScreen> {
                     },
                   ),
                 ),
-               
                 SizedBox(
                   width: 400,
                   height: 50,
                   child: RaisedButton(
                     color: const Color(0xFF2B5894),
                     onPressed: () {
-            //              Navigator.push(
-            //  context,
-            //   MaterialPageRoute(builder: (context) => BottomNavScreen()),
-            // );
+                      //              Navigator.push(
+                      //  context,
+                      //   MaterialPageRoute(builder: (context) => BottomNavScreen()),
+                      // );
                       if (_formkey.currentState!.validate()) {
                         RegistrationUser();
                         print("Successful");
@@ -120,35 +110,34 @@ class _SigninScreenState extends State<SigninScreen> {
                     child: Text("Signin"),
                   ),
                 ),
-               Row(
-                 mainAxisAlignment: MainAxisAlignment.center,
-                 children: <Widget>[
-                   Text("Don't have an account?",
-                   style: TextStyle(color: Colors.black),),
-                   FlatButton(
-                     onPressed: () {
-                        Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => RegistrationScreen()),
-            );
-                     }, 
-                     child:Text(
-                       "Register",
-                       style: TextStyle(
-                         color: Colors.lightBlue[200],
-                         fontWeight: FontWeight.bold
-                       ),
-                       ) )
-                   
-
-                 ],
-               )
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      "Don't have an account?",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    FlatButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => RegistrationScreen()),
+                          );
+                        },
+                        child: Text(
+                          "Register",
+                          style: TextStyle(
+                              color: Colors.lightBlue[200],
+                              fontWeight: FontWeight.bold),
+                        ))
+                  ],
+                )
               ],
             ),
           ),
         ),
       ),
-      
     );
   }
 
@@ -159,11 +148,7 @@ class _SigninScreenState extends State<SigninScreen> {
         'klabchat.devslab.io/', 'api/members/login.php', {'q': '{http}'});
 
     //json maping user entered details
-    Map mapeddate = {
-
-     'email': _email.text,
-     'password': _password.text
-    };
+    Map mapeddate = {'email': _email.text, 'password': _password.text};
     //send  data using http post to our php code
     http.Response reponse = await http.post(url, body: mapeddate);
 
@@ -171,9 +156,7 @@ class _SigninScreenState extends State<SigninScreen> {
     var data = jsonDecode(reponse.body);
     print("DATA: ${data}");
 
-
-    if(data["code"] ==200)
-    {
+    if (data["code"] == 200) {
       var message = data["message"];
       print(message);
 
@@ -182,18 +165,17 @@ class _SigninScreenState extends State<SigninScreen> {
         action: SnackBarAction(
           label: 'Signin',
           onPressed: () {
-             Navigator.push(context, CupertinoPageRoute(builder: (context)=>  BottomNavScreen()));
+            Navigator.push(context,
+                CupertinoPageRoute(builder: (context) => BottomNavScreen()));
             // Some code to undo the change.
           },
         ),
       );
 
-    
-       ScaffoldMessenger.of(context).showSnackBar(snackBar);
-        Navigator.push(context, CupertinoPageRoute(builder: (context)=>  BottomNavScreen()));
-
-
-    }else{
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      Navigator.push(
+          context, CupertinoPageRoute(builder: (context) => BottomNavScreen()));
+    } else {
       var message = data["message"];
       print(message);
 
@@ -209,10 +191,7 @@ class _SigninScreenState extends State<SigninScreen> {
 
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
-
-
   }
 }
 
-class Status {
-}
+class Status {}
