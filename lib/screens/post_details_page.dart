@@ -10,7 +10,7 @@ class PostWidget extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.blueGrey.shade50,
       appBar:AppBar(
-        backgroundColor: Colors.blue.shade300,
+        backgroundColor: Color(0xff282d36),
         title: Text("Forum",textAlign: TextAlign.center, style: TextStyle(color: Colors.white,),
         ),
         centerTitle: true,

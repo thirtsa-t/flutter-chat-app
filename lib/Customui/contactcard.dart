@@ -25,7 +25,7 @@ final ChatModel contact;
             bottom: 4,
             right: 5,
             child: CircleAvatar(
-              backgroundColor: Colors.blue.shade300,
+              backgroundColor: Color(0xff282d36),
               radius: 11,
          child: Icon(
             Icons.check,

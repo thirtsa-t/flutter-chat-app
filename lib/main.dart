@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       title: 'KLabchart',
            debugShowCheckedModeBanner: false,
       theme: ThemeData(
-       primaryColor: Colors.blue.shade300,
+       primaryColor: Color(0xff282d36),
         accentColor: Colors.blue.shade50,
       ),
       home:BottomNavScreen(),

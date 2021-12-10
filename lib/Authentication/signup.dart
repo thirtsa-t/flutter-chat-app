@@ -244,7 +244,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     print("DATA: ${data}");
 
 
-
     if(data["code"] ==200)
       {
         var message = data["message"];

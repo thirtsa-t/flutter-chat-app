@@ -16,7 +16,7 @@ class announcementScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Announcement"),
-      backgroundColor: Colors.blue.shade300,
+      backgroundColor: Color(0xff282d36),
         centerTitle: true,
         brightness: Brightness.dark,
 
@@ -47,11 +47,11 @@ class announcementScreen extends StatelessWidget {
             trimExpandedText: " Show Less ",
             lessStyle: TextStyle(
               fontWeight: FontWeight.bold,
-              color: Colors.blue.shade300,
+              color: Color(0xff282d36),
             ),
             moreStyle: TextStyle(
               fontWeight: FontWeight.bold,
-              color: Colors.blue.shade300,
+              color: Color(0xff282d36),
             ),
             style: TextStyle(
               fontSize: 16,

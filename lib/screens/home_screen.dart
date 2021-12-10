@@ -40,9 +40,9 @@ class _HomeScreen extends State<HomeScreen>  with SingleTickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue.shade300,
+
       appBar: AppBar(
-          // backgroundColor: Colors.red,
+          backgroundColor: Color(0xff282d36),
           title: Image.asset('assets/images/klab.png',
               fit: BoxFit.contain, height: 42),
               
@@ -132,10 +132,10 @@ class _HomeScreen extends State<HomeScreen>  with SingleTickerProviderStateMixin
               child: Container(
                 height: 300.0,
                 decoration: BoxDecoration(
-                  color: Theme.of(context).accentColor,
+                  color: Color(0xff313844),
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30.0),
-                    topRight: Radius.circular(30.0),
+                    topLeft: Radius.circular(00.0),
+                    topRight: Radius.circular(00.0),
                   ),
                 ),
                 child: Column(

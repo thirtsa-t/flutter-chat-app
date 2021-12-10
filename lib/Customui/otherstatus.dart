@@ -50,7 +50,7 @@ class StatusPainter extends CustomPainter{
     final Paint  paint = Paint()
     ..isAntiAlias = true
     ..strokeWidth = 6.0
-    ..color = Colors.blue.shade300
+    ..color = Color(0xff282d36)
     ..style = PaintingStyle.stroke;
     drawnArc(canvas, size, paint);
     

@@ -42,29 +42,29 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
         // showSelectedLabels: false,
         // showUnselectedLabels: false,
         // selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.blue.shade300,
+        unselectedItemColor: Color(0xff282d36),
         elevation: 0.0,
         items: [
          BottomNavigationBarItem(
            icon: Icon(Icons.chat),
            title: Text('Chat'),
-           backgroundColor: Colors.blue.shade300
+           backgroundColor: Color(0xff282d36)
            ),
            
            BottomNavigationBarItem(
            icon: Icon(Icons.announcement),
            title: Text('Forum'),
-           backgroundColor: Colors.blue.shade300
+           backgroundColor: Color(0xff282d36)
            ),
            BottomNavigationBarItem(
            icon: Icon(Icons.forum),
            title: Text('Announcement'),
-           backgroundColor: Colors.blue.shade300
+           backgroundColor: Color(0xff282d36)
            ),
            BottomNavigationBarItem(
            icon: Icon(Icons.forum),
            title: Text('My Account'),
-           backgroundColor: Colors.blue.shade300
+           backgroundColor: Color(0xff282d36)
            ),
            
            
