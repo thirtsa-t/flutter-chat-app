@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
            debugShowCheckedModeBanner: false,
       theme: ThemeData(
        primaryColor: Color(0xff282d36),
-        accentColor: Colors.blue.shade50,
+        accentColor: Color(0xff313a4a),
       ),
       home:BottomNavScreen(),
       
