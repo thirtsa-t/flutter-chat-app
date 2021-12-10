@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ui/Authentication/login.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -11,44 +12,47 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        elevation: 1,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          icon: Icon(
-            Icons.arrow_back,
-            color: Colors.blue[100],
+        title: const Text('Setting'),
+         backgroundColor: Color(0xff282d36),
+        centerTitle: true,
           ),
-        ),
-      ),
       body: Container(
         padding: EdgeInsets.only(left: 16, top: 25, right: 16),
         child: ListView(
           children: [
-            Text(
-              "Settings",
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
-            ),
-            SizedBox(
-              height: 40,
-            ),
-            Row(
-              children: [
-                Icon(
-                  Icons.person,
-                  color: Colors.blue[100],
+             CircleAvatar(
+                 radius: 35.0,
+
+                  child: Image.asset("assets/images/sam.jpg"),
                 ),
-                SizedBox(
-                  width: 8,
+                const SizedBox(
+                  height: 15,
                 ),
-                Text(
-                  "Account",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
+                const Center(
+                      child: Text(
+                          'Mentor',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Color.fromRGBO(78, 53, 43, 1.0),
+                              fontSize: 20.0,                            
+                              fontWeight: FontWeight.w300),
+                        ),
+                      ),
+                    
+                    const Center(
+                      // child: Padding(
+                        // padding: EdgeInsets.only(top: 40.0,bottom: 40.0),
+                         child: Text(
+                          '0783845574.@Mentor',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Color.fromRGBO(78, 53, 43, 1.0),
+                              fontSize: 10.0,                            
+                              fontWeight: FontWeight.w300),
+                        ),
+                      ),
+                    
+            
             Divider(
               height: 15,
               thickness: 2,
@@ -56,51 +60,27 @@ class _SettingsPageState extends State<SettingsPage> {
             SizedBox(
               height: 10,
             ),
+            buildAccountOptionRow(context, "Update profile"),
             buildAccountOptionRow(context, "Change password"),
-            buildAccountOptionRow(context, "Content settings"),
-            buildAccountOptionRow(context, "Social"),
-            buildAccountOptionRow(context, "Language"),
-            buildAccountOptionRow(context, "Privacy and security"),
+           buildAccountOptionRow(context, "Privacy and security"),
+           buildAccountOptionRow(context, "Delete Account"),
+            
+            
             SizedBox(
               height: 40,
             ),
-            Row(
-              children: [
-                Icon(
-                  Icons.volume_up_outlined,
-                  color: Colors.blue[100],
-                ),
-                SizedBox(
-                  width: 8,
-                ),
-                Text(
-                  "Notifications",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            Divider(
-              height: 15,
-              thickness: 2,
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            buildNotificationOptionRow("New for you", true),
-            buildNotificationOptionRow("Account activity", true),
-            buildNotificationOptionRow("Opportunity", false),
-            SizedBox(
-              height: 50,
-            ),
+            
             Center(
               child: OutlineButton(
                 padding: EdgeInsets.symmetric(horizontal: 40),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
-                onPressed: () {},
+                onPressed: () {
+                   Navigator.push(context, CupertinoPageRoute(builder: (context)=> SigninScreen()));
+                },
                 child: Text("SIGN OUT",
                     style: TextStyle(
-                        fontSize: 16, letterSpacing: 2.2, color: Colors.black)),
+                        fontSize: 16, letterSpacing: 2.2, color: Color(0xff282d36))),
               ),
             )
           ],
@@ -109,26 +89,26 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
-  Row buildNotificationOptionRow(String title, bool isActive) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          title,
-          style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w500,
-              color: Colors.grey[600]),
-        ),
-        Transform.scale(
-            scale: 0.7,
-            child: CupertinoSwitch(
-              value: isActive,
-              onChanged: (bool val) {},
-            ))
-      ],
-    );
-  }
+  // Row buildNotificationOptionRow(String title, bool isActive) {
+  //   return Row(
+  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //     children: [
+  //       Text(
+  //         title,
+  //         style: TextStyle(
+  //             fontSize: 18,
+  //             fontWeight: FontWeight.w500,
+  //             color: Colors.grey[600]),
+  //       ),
+  //       Transform.scale(
+  //           scale: 0.7,
+  //           child: CupertinoSwitch(
+  //             value: isActive,
+  //             onChanged: (bool val) {},
+  //           ))
+  //     ],
+  //   );
+  // }
 
   GestureDetector buildAccountOptionRow(BuildContext context, String title) {
     return GestureDetector(
@@ -178,4 +158,6 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
     );
   }
+
+  
 }

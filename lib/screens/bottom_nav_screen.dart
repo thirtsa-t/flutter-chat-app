@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui/07_profile/compliteprofile.dart';
 import 'package:ui/models/message_model.dart';
 import 'package:ui/screens/announcement.dart';
 import 'package:ui/screens/calls.dart';
@@ -25,7 +26,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     const HomeScreen(),
     PostWidget(),
     announcementScreen(),
-    SettingsUI (),
+ profileScreen(),
   
 ];
   int _currentIndex = 0;
@@ -57,12 +58,12 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
            backgroundColor: Color(0xff282d36)
            ),
            BottomNavigationBarItem(
-           icon: Icon(Icons.forum),
+           icon: Icon(Icons.add_alert),
            title: Text('Announcement'),
            backgroundColor: Color(0xff282d36)
            ),
            BottomNavigationBarItem(
-           icon: Icon(Icons.forum),
+           icon: Icon(Icons.person),
            title: Text('My Account'),
            backgroundColor: Color(0xff282d36)
            ),

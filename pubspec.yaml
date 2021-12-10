@@ -30,7 +30,9 @@ dependencies:
   flutter:
     sdk: flutter
   http: ^0.13.4
-  
+  line_awesome_flutter: ^1.0.1
+  flutter_screenutil: ^5.0.1
+  animated_theme_switcher: ^2.0.5
 
   # uuid: ^3.0.4
  
