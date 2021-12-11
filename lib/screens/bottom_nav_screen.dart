@@ -7,7 +7,7 @@ import 'package:ui/screens/chat_screen.dart';
 import 'package:ui/screens/edit_setting.dart';
 
 import 'package:ui/screens/home_screen.dart';
-import 'package:ui/screens/my_profile.dart';
+
 import 'package:ui/screens/post_details_page.dart';
 import 'package:ui/models/chatmodelpage.dart';
 

@@ -7,6 +7,7 @@ import 'package:ui/screens/chat_screen.dart';
 class RecentChats extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+      backgroundColor: Color(0xff282d36);
     return Expanded(
      child: Container(
         decoration: BoxDecoration(
