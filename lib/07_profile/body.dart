@@ -73,7 +73,7 @@ class Body extends StatelessWidget {
           child: FlatButton(
             padding: EdgeInsets.all(20),
             shape: RoundedRectangleBorder(),
-            color: Color(0xFFF282d36),
+            color: Color(0xff313a4a),
             onPressed: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => ChangePassword()));
@@ -101,7 +101,7 @@ class Body extends StatelessWidget {
           child: FlatButton(
             padding: EdgeInsets.all(20),
             shape: RoundedRectangleBorder(),
-            color: Color(0xFFF282d36),
+            color: Color(0xff313a4a),
             onPressed: () {},
             child: Row(
               children: [
@@ -126,7 +126,7 @@ class Body extends StatelessWidget {
           child: FlatButton(
             padding: EdgeInsets.all(20),
             shape: RoundedRectangleBorder(),
-            color: Color(0xFFF282d36),
+            color: Color(0xff313a4a),
             onPressed: () {
               Navigator.push(
                 context,
@@ -156,7 +156,7 @@ class Body extends StatelessWidget {
           child: FlatButton(
             padding: EdgeInsets.all(20),
             shape: RoundedRectangleBorder(),
-            color: Color(0xFFF282d36),
+            color: Color(0xff313a4a),
             onPressed: () {},
             child: Row(
               children: [

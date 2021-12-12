@@ -8,7 +8,7 @@ class PostWidget extends StatelessWidget {
   Widget build(BuildContext context) {
   
     return Scaffold(
-      backgroundColor: Colors.blueGrey.shade50,
+      backgroundColor: Color(0xff282d36),
       appBar:AppBar(
         backgroundColor: Color(0xff282d36),
         title: Text("Forum",textAlign: TextAlign.center, style: TextStyle(color: Colors.white,),
@@ -54,7 +54,7 @@ class PostWidget extends StatelessWidget {
           margin: EdgeInsets.all(10),
           padding: EdgeInsets.all(20),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Color(0xff313a4a),
             borderRadius: BorderRadius.circular(20),
           ),
           child: Column(
@@ -86,12 +86,12 @@ class PostWidget extends StatelessWidget {
                               postList[index].name,
                              
                               style: TextStyle(
-                                 color:Colors.black,
+                                 color:Colors.white,
                                   fontWeight: FontWeight.w600, fontSize: 16),
                             ),
                             Text(
                               postList[index].time,
-                              style: TextStyle(color: Colors.black),
+                              style: TextStyle(color: Colors.white),
                             )
                           ],
                         ),
@@ -106,7 +106,7 @@ class PostWidget extends StatelessWidget {
               ),
               Text(
                 postList[index].title,
-                style: TextStyle(color: Colors.black, fontSize: 16),
+                style: TextStyle(color: Colors.white, fontSize: 16),
               ),
               SizedBox(
                 height: 10,
@@ -137,7 +137,7 @@ class PostWidget extends StatelessWidget {
                             size: 24,
                             color: postList[index].likeStatus
                                 ? Colors.red
-                                : Colors.black,
+                                : Colors.white,
                           ),
                           SizedBox(
                             width: 10,
@@ -147,7 +147,7 @@ class PostWidget extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 19,
                               fontWeight: FontWeight.w700,
-                              color: Colors.black,
+                              color: Colors.white,
                             ),
                           )
                         ],
@@ -160,7 +160,7 @@ class PostWidget extends StatelessWidget {
                           Icon(
                             Icons.messenger_outline,
                             size: 24,
-                            color: Colors.black,
+                            color: Colors.white,
                           ),
                           SizedBox(
                             width: 10,
@@ -170,7 +170,7 @@ class PostWidget extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 19,
                               fontWeight: FontWeight.w700,
-                              color: Colors.black,
+                              color: Colors.white
                             ),
                           )
                         ],

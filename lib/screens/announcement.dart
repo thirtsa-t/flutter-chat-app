@@ -14,11 +14,12 @@ class announcementScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Announcement"),
       backgroundColor: Color(0xff282d36),
-        centerTitle: true,
-        brightness: Brightness.dark,
+      appBar: AppBar(
+           backgroundColor: Color(0xff282d36),
+        title: Text("Announcement"),
+       centerTitle: true,
+        // brightness: Brightness.dark,
 
          actions: [
             // action button
@@ -36,9 +37,12 @@ class announcementScreen extends StatelessWidget {
           ],
       ),
       body: SingleChildScrollView(
+       
         child: Container(
-          padding: EdgeInsets.all(15),
+         padding: EdgeInsets.all(15),
+           color: Colors.white,
           child: ReadMoreText(
+            
             content,
             trimLines: 3,
             textAlign: TextAlign.justify,

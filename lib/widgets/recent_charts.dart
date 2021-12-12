@@ -11,7 +11,7 @@ class RecentChats extends StatelessWidget {
     return Expanded(
      child: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Color(0xff282d36),
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(30.0),
             topRight: Radius.circular(30.0),
@@ -36,11 +36,11 @@ class RecentChats extends StatelessWidget {
                   ),
                 ),
                 child: Container(
-                  margin: EdgeInsets.only(top: 5.0, bottom: 5.0, right: 20.0),
+                  // margin: EdgeInsets.only(top: 5.0, bottom: 5.0, right: 20.0),
                   padding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
                   decoration: BoxDecoration(
-                    color: chat.unread ? Color(0xff313a4a) : Colors.white,
+                    color: chat.unread ?Color(0xff313a4a) : Color(0xff282d36),
                     borderRadius: BorderRadius.only(
                       topRight: Radius.circular(20.0),
                       bottomRight: Radius.circular(20.0),
@@ -62,7 +62,7 @@ class RecentChats extends StatelessWidget {
                               Text(
                                 chat.sender.name,
                                 style: TextStyle(
-                                  color: Colors.grey,
+                                  color: Colors.grey[50],
                                   fontSize: 15.0,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -73,7 +73,7 @@ class RecentChats extends StatelessWidget {
                                 child: Text(
                                   chat.text,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: Colors.grey,
                                     fontSize: 15.0,
                                     fontWeight: FontWeight.w600,
                                   ),

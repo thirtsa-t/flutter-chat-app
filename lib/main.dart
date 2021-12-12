@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'KLabchart',
+      title: 'KLab',
            debugShowCheckedModeBanner: false,
       theme: ThemeData(
        primaryColor: Color(0xff282d36),
