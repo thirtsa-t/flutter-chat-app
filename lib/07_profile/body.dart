@@ -5,7 +5,10 @@ import 'package:ui/Authentication/login.dart';
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold( 
+      backgroundColor:  Color(0xFFF282d36),
+     
+
         body: Center(
             child: SingleChildScrollView(
                 child: Form(
@@ -24,7 +27,7 @@ class Body extends StatelessWidget {
             'Mentor',
             textAlign: TextAlign.center,
             style: TextStyle(
-                color: Color.fromRGBO(78, 53, 43, 1.0),
+                color: Colors.white,
                 fontSize: 20.0,
                 fontWeight: FontWeight.w300),
           ),
@@ -36,7 +39,7 @@ class Body extends StatelessWidget {
             '0783845574.@Mentor',
             textAlign: TextAlign.center,
             style: TextStyle(
-                color: Color.fromRGBO(78, 53, 43, 1.0),
+                color: Colors.white,
                 fontSize: 10.0,
                 fontWeight: FontWeight.w300),
           ),
@@ -46,7 +49,7 @@ class Body extends StatelessWidget {
           child: FlatButton(
             padding: EdgeInsets.all(20),
             shape: RoundedRectangleBorder(),
-            color: Color(0xFFF282d36),
+           color: Color(0xff313a4a),
             onPressed: () {},
             child: Row(
               children: [
@@ -63,7 +66,10 @@ class Body extends StatelessWidget {
                     color: Color(0xFFF5F6F9),
                   ),
                 )),
-                Icon(Icons.arrow_forward_ios)
+                            Icon(
+  Icons.arrow_forward_ios,
+  color: Colors.white,
+)
               ],
             ),
           ),
@@ -91,7 +97,11 @@ class Body extends StatelessWidget {
                         style: TextStyle(
                           color: Color(0xFFF5F6F9),
                         ))),
-                Icon(Icons.arrow_forward_ios)
+                         
+                Icon(
+  Icons.arrow_forward_ios,
+  color: Colors.white,
+)
               ],
             ),
           ),
@@ -115,8 +125,13 @@ class Body extends StatelessWidget {
                     child: Text("Privacy policy",
                         style: TextStyle(
                           color: Color(0xFFF5F6F9),
-                        ))),
-                Icon(Icons.arrow_forward_ios)
+                        )
+                        )
+                        ),
+                Icon(
+  Icons.arrow_forward_ios,
+  color: Colors.white,
+)
               ],
             ),
           ),
@@ -146,7 +161,11 @@ class Body extends StatelessWidget {
                         style: TextStyle(
                           color: Color(0xFFF5F6F9),
                         ))),
-                Icon(Icons.arrow_forward_ios)
+                          
+                Icon(
+  Icons.arrow_forward_ios,
+  color: Colors.white,
+)
               ],
             ),
           ),
@@ -171,9 +190,12 @@ class Body extends StatelessWidget {
                         style: TextStyle(
                           color: Color(0xFFF5F6F9),
                         ))),
+          
                 Icon(
-                  Icons.arrow_forward_ios,
-                )
+  Icons.arrow_forward_ios,
+  color: Colors.white,
+)
+                
               ],
             ),
           ),

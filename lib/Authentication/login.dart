@@ -21,9 +21,11 @@ class _SigninScreenState extends State<SigninScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey[50],
+      backgroundColor:  Color(0xFFF282d36),
       body: Center(
+        
         child: SingleChildScrollView(
+          
           child: Form(
             key: _formkey,
             child: Column(
@@ -43,7 +45,7 @@ class _SigninScreenState extends State<SigninScreen> {
                       'Login',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          color: Color.fromRGBO(78, 53, 43, 1.0),
+                          color: Colors.white,
                           fontSize: 40.0,
                           fontWeight: FontWeight.w300),
                     ),
@@ -52,9 +54,11 @@ class _SigninScreenState extends State<SigninScreen> {
                 Padding(
                   padding:
                       const EdgeInsets.only(bottom: 15, left: 10, right: 10),
+                      
                   child: TextFormField(
                     controller: _email,
                     keyboardType: TextInputType.text,
+                    
                     decoration: buildInputDecoration(Icons.email, "Email"),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -68,6 +72,7 @@ class _SigninScreenState extends State<SigninScreen> {
                     },
                     onSaved: (email) {},
                   ),
+                  
                 ),
                 Padding(
                   padding:
@@ -145,7 +150,7 @@ class _SigninScreenState extends State<SigninScreen> {
     // url to registration php script
     print("submitting");
     var url = Uri.http(
-        'klabapp.klabstartupsacademy.rw/', '/api/members/login.php', {'q': '{http}'});
+        'klabapp.klabstartupsacademy.rw', '/api/members/login.php', {'q': '{http}'});
 
     //json maping user entered details
     Map mapeddate = {'email': _email.text, 'password': _password.text};

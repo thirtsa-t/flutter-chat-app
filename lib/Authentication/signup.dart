@@ -25,7 +25,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey[50],
+      backgroundColor:  Color(0xFFF282d36),
        body: Center(
       child: SingleChildScrollView(
           child: Form(
@@ -50,7 +50,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           'Register',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                              color: Color.fromRGBO(78, 53, 43, 1.0),
+                              color: Colors.white,
                               fontSize: 40.0,                            
                               fontWeight: FontWeight.w300),
                         ),
@@ -225,7 +225,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     // url to registration php script
     print("submitting");
     var url = Uri.http(
-        'klabapp.klabstartupsacademy.rw', '/api/members/register', {'q': '{http}'});
+        'klabapp.klabstartupsacademy.rw', '/api/members/register.php', {'q': '{http}'});
 
     //json maping user entered details
     Map mapeddate = {
