@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui/utilities/constants.dart';
 
 class ChangePassword extends StatelessWidget {
   @override
@@ -12,86 +13,113 @@ class ChangePassword extends StatelessWidget {
         title: Text("change Password"),
       ),
         body: ListView(children: <Widget>[
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        child: FlatButton(
-          padding: EdgeInsets.all(20),
-          shape: RoundedRectangleBorder(),
-          color: Color(0xff313a4a),
-          onPressed: () {},
-          child: Row(
-            children: [
-              Icon(
+      
+          Container(
+             margin: EdgeInsets.only(top: 10.0, bottom: 10.0, right: 20.0, left: 20.0),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              alignment: Alignment.centerLeft,
+              decoration: kBoxDecorationStyle,
+              height: 60.0,
+              child: TextField(
+                keyboardType: TextInputType.emailAddress,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'OpenSans',
+                ),
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.only(top: 14.0),
+                  prefixIcon: Icon(
+                    Icons.lock,
+                    color: Colors.white,
+                  ),
+                  hintText: 'Enter your Current Password',
+                  hintStyle: kHintTextStyle,
+                ),
+              ),
+            ),
+        
+      
+      Container(
+         margin: EdgeInsets.only(top: 10.0, bottom: 10.0, right: 20.0, left: 20.0),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+          alignment: Alignment.centerLeft,
+          decoration: kBoxDecorationStyle,
+          height: 60.0,
+          child: TextField(
+            keyboardType: TextInputType.emailAddress,
+            style: TextStyle(
+              color: Colors.white,
+              fontFamily: 'OpenSans',
+            ),
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.only(top: 14.0),
+              prefixIcon: Icon(
                 Icons.lock,
                 color: Colors.white,
-                size: 30.0,
               ),
-              SizedBox(width: 20),
-              Expanded(
-                  child: Text(
-                "Current Password",
-                style: TextStyle(
-                  color: Color(0xFFF5F6F9),
-                ),
-              )),
-            ],
+              hintText: 'Enter your New Password',
+              hintStyle: kHintTextStyle,
+            ),
           ),
         ),
-      ),
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        child: FlatButton(
-          padding: EdgeInsets.all(20),
-          shape: RoundedRectangleBorder(),
-         color: Color(0xff313a4a),
-          onPressed: () {},
-          child: Row(
-            children: [
-              Icon(
+             Container(
+                margin: EdgeInsets.only(top: 10.0, bottom: 10.0, right: 20.0, left: 20.0),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+          alignment: Alignment.centerLeft,
+          decoration: kBoxDecorationStyle,
+          height: 60.0,
+          child: TextField(
+            keyboardType: TextInputType.emailAddress,
+            style: TextStyle(
+              color: Colors.white,
+              fontFamily: 'OpenSans',
+            ),
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.only(top: 14.0),
+              prefixIcon: Icon(
                 Icons.lock,
                 color: Colors.white,
-                size: 30.0,
               ),
-              SizedBox(width: 20),
-              Expanded(
-                  child: Text(
-                "New Password",
-                style: TextStyle(
-                  color: Color(0xFFF5F6F9),
-                ),
-              )),
-            ],
+              hintText: 'Enter your Confirmed Password',
+              hintStyle: kHintTextStyle,
+            ),
           ),
         ),
-      ),
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        child: FlatButton(
-          padding: EdgeInsets.all(20),
-          shape: RoundedRectangleBorder(),
-          color: Color(0xff313a4a),
-          onPressed: () {},
-          child: Row(
-            children: [
-              Icon(
-                Icons.lock,
-                color: Colors.white,
-                size: 30.0,
-              ),
-              SizedBox(width: 20),
-              Expanded(
-                  child: Text(
-                "Confirm Password",
-                style: TextStyle(
-                  color: Color(0xFFF5F6F9),
+                         Container(
+                           margin: EdgeInsets.only(top: 10.0, bottom: 10.0, right: 50.0, left: 50.0),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                  width: 200,
+                  height: 50,
+                  
+                  child: RaisedButton(
+                    color:const Color(0xff313a4a),
+                    onPressed: () {},
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50.0),
+                        side: BorderSide(color: Colors.white, width: 2)),
+                    textColor: Colors.white,
+                    child: Text("Change Password"),
+                  ),
                 ),
-              )),
-            ],
-          ),
-        ),
-      ),
-    ]
-    )
+              ],
+            ),
+          
+      
+            
+          
+        
+      
+    
+    
     );
+  
+
   }
 }
