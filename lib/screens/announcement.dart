@@ -108,17 +108,17 @@ class announcementScreen extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              Center(
-                child: Container(
-                  height: 250,
-                  width: double.maxFinite,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      // image: DecorationImage(
-                      //     image: NetworkImage(postList[index].image),
-                      //     fit: BoxFit.cover)),
-                ),
-              ),
+              // Center(
+              //   child: Container(
+              //     height: 250,
+              //     width: double.maxFinite,
+              //     decoration: BoxDecoration(
+              //         borderRadius: BorderRadius.circular(20),
+              //         // image: DecorationImage(
+              //         //     image: NetworkImage(postList[index].image),
+              //         //     fit: BoxFit.cover)),
+              //   ),
+              
               // SizedBox(
               //   height: 15,
               // ),
@@ -126,7 +126,7 @@ class announcementScreen extends StatelessWidget {
                     
                 
                 
-              )
+              
             ]
           )
             

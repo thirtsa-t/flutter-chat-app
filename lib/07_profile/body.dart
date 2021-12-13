@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui/07_profile/changepassword.dart';
+import 'package:ui/07_profile/updateprofile.dart';
 import 'package:ui/Authentication/login.dart';
 
 class Body extends StatelessWidget {
@@ -50,7 +51,10 @@ class Body extends StatelessWidget {
             padding: EdgeInsets.all(20),
             shape: RoundedRectangleBorder(),
            color: Color(0xff313a4a),
-            onPressed: () {},
+            onPressed: () {
+               Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => UpdateProfile()));
+            },
             child: Row(
               children: [
                 Icon(
