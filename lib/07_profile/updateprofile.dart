@@ -15,7 +15,7 @@ class UpdateProfile extends StatelessWidget {
         body: ListView(children: <Widget>[
       
           Container(
-             margin: EdgeInsets.only(top: 50.0, bottom: 10.0, right: 20.0, left: 20.0),
+             margin: EdgeInsets.only(top: 10.0, bottom: 10.0, right: 20.0, left: 20.0),
                   padding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
               alignment: Alignment.centerLeft,
@@ -42,7 +42,7 @@ class UpdateProfile extends StatelessWidget {
         
       
       Container(
-         margin: EdgeInsets.only(top: 50.0, bottom: 10.0, right: 20.0, left: 20.0),
+         margin: EdgeInsets.only(top: 10.0, bottom: 10.0, right: 20.0, left: 20.0),
                   padding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
           alignment: Alignment.centerLeft,
@@ -67,7 +67,7 @@ class UpdateProfile extends StatelessWidget {
           ),
         ),
              Container(
-                margin: EdgeInsets.only(top: 50.0, bottom: 10.0, right: 20.0, left: 20.0),
+                margin: EdgeInsets.only(top: 10.0, bottom: 10.0, right: 20.0, left: 20.0),
                   padding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
           alignment: Alignment.centerLeft,
@@ -92,7 +92,7 @@ class UpdateProfile extends StatelessWidget {
           ),
         ),
                          Container(
-                           margin: EdgeInsets.only(top: 50.0, bottom: 10.0, right: 50.0, left: 50.0),
+                           margin: EdgeInsets.only(top: 10.0, bottom: 10.0, right: 50.0, left: 50.0),
                   padding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
                   width: 200,
