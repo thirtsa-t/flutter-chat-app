@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:ui/Authentication/signup.dart';
 import 'package:ui/screens/bottom_nav_screen.dart';
 import 'inputdecoration.dart';
-import 'package:http/http.dart' as http;
+// import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 
 class SigninScreen extends StatefulWidget {
   @override
@@ -149,20 +150,31 @@ class _SigninScreenState extends State<SigninScreen> {
   Future RegistrationUser() async {
     // url to registration php script
     print("submitting");
-    var url = Uri.http(
-        'klabapp.klabstartupsacademy.rw', '/api/members/login.php', {'q': '{http}'});
 
-    //json maping user entered details
-    Map mapeddate = {'email': _email.text, 'password': _password.text};
-    //send  data using http post to our php code
-    http.Response reponse = await http.post(url, body: mapeddate);
+    // var url = Uri.http(
+    //     'klabapp.klabstartupsacademy.rw', '/api/members/login.php', {'q': '{https}'});
+    //
+    // //json maping user entered details
+    // Map mapeddate = {'email': _email.text, 'password': _password.text};
+    // //send  data using http post to our php code
+    // http.Response reponse = await http.post(url, body: mapeddate);
+    //
+
+    // new codes
+    var response = await Dio(BaseOptions(
+    )).post("https://klabapp.klabstartupsacademy.rw/api/members/login.php",data: FormData.fromMap({
+      "email": _email.text,
+      "password": _password.text,
+    }));
+
+    // end new codes
 
     //getting response from php code, here
-    var data = jsonDecode(reponse.body);
-    print("DATA: ${data}");
+    //var data = jsonDecode(response.body);
+    print(response);
 
-    if (data["code"] == 200) {
-      var message = data["message"];
+    if (response.data['code'] == 200) {
+      var message = response.data['message'];
       print(message);
 
       final snackBar = SnackBar(
@@ -181,7 +193,7 @@ class _SigninScreenState extends State<SigninScreen> {
       Navigator.push(
           context, CupertinoPageRoute(builder: (context) => BottomNavScreen()));
     } else {
-      var message = data["message"];
+      var message =  response.data['message'];
       print(message);
 
       final snackBar = SnackBar(

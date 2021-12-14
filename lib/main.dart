@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
        primaryColor: Color(0xff282d36),
         accentColor: Color(0xff313a4a),
       ),
-      home:BottomNavScreen(),
+      home:SigninScreen(),
       
     );
   }
