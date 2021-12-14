@@ -39,33 +39,33 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
         currentIndex: _currentIndex,
         onTap: (index) => setState(() => _currentIndex = index),
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xff282d36),
         // showSelectedLabels: false,
         // showUnselectedLabels: false,
         // selectedItemColor: Colors.white,
-        unselectedItemColor: Color(0xff282d36),
+        unselectedItemColor: Colors.white,
         elevation: 0.0,
-        items: [
+        items: const [
          BottomNavigationBarItem(
            icon: Icon(Icons.chat),
            title: Text('Chat'),
-           backgroundColor: Color(0xff282d36)
+           backgroundColor: Colors.white
            ),
            
            BottomNavigationBarItem(
            icon: Icon(Icons.announcement),
            title: Text('Forum'),
-           backgroundColor: Color(0xff282d36)
+           backgroundColor: Colors.white
            ),
            BottomNavigationBarItem(
            icon: Icon(Icons.add_alert),
            title: Text('Announcement'),
-           backgroundColor: Color(0xff282d36)
+           backgroundColor: Colors.white
            ),
            BottomNavigationBarItem(
            icon: Icon(Icons.person),
            title: Text('My Account'),
-           backgroundColor: Color(0xff282d36)
+           backgroundColor: Colors.white
            ),
            
            

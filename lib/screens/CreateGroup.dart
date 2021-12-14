@@ -28,8 +28,10 @@ class _CreateGroupState extends State<CreateGroup> {
   List<ChatModel> groupmember = [];
   @override
   Widget build(BuildContext context) {
+    backgroundColor:const Color(0xff282d36);
     return Scaffold(
         appBar: AppBar(
+          backgroundColor:const Color(0xff282d36),
           title: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -124,6 +126,7 @@ class _CreateGroupState extends State<CreateGroup> {
                   )
                 : Container(),
           ],
-        ));
+        )
+        );
   }
 }

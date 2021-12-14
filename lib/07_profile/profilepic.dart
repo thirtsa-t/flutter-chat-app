@@ -17,10 +17,10 @@
 //   //
 //   static final String uploadEndPoint =
 //       'http://localhost/flutter_test/upload_image.php';
-//   Future<File> file;
+//   late Future<File> file;
 //   String status = '';
-//   String base64Image;
-//   File tmpFile;
+//   late String base64Image;
+//   late File tmpFile;
 //   String errMessage = 'Error Uploading Image';
  
 //   chooseImage() {
