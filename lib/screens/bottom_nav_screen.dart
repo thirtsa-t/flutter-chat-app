@@ -25,7 +25,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   final List _screens = [
     const HomeScreen(),
     PostWidget(),
-    announcementScreen(),
+    AnnouncementsScreen(),
  profileScreen(),
   
 ];
