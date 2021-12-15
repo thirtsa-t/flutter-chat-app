@@ -43,7 +43,7 @@ class _HomeScreen extends State<HomeScreen>  with SingleTickerProviderStateMixin
 
       appBar: AppBar(
           backgroundColor: Color(0xff282d36),
-          title: Image.asset('assets/images/klab.png',
+          title: Image.asset('assets/logos/logoname.png',
               fit: BoxFit.contain, height: 42),
               
           toolbarHeight: 68,

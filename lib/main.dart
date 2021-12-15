@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ui/07_profile/body.dart';
 
 import 'package:ui/Authentication/login.dart';
+import 'package:ui/screens/announcement.dart';
 import 'package:ui/screens/home_screen.dart';
 
 import 'package:ui/screens/bottom_nav_screen.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
        primaryColor: Color(0xff282d36),
         accentColor: Color(0xff313a4a),
       ),
-      home:SigninScreen(),
+      home:AnnouncementsScreen(),
       
     );
   }
