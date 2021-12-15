@@ -59,6 +59,7 @@ class _SigninScreenState extends State<SigninScreen> {
                   child: TextFormField(
                     controller: _email,
                     keyboardType: TextInputType.text,
+                    style: TextStyle(color: Colors.white),
                     
                     decoration: buildInputDecoration(Icons.email, "Email"),
                     validator: (value) {
@@ -79,9 +80,11 @@ class _SigninScreenState extends State<SigninScreen> {
                   padding:
                       const EdgeInsets.only(bottom: 15, left: 10, right: 10),
                   child: TextFormField(
+                    
                     controller: _password,
                     obscureText: true,
                     keyboardType: TextInputType.text,
+                    
                     decoration: buildInputDecoration(Icons.lock, "Password"),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -211,4 +214,4 @@ class _SigninScreenState extends State<SigninScreen> {
   }
 }
 
-class Status {}
+// class Status {}
