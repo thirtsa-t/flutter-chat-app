@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 
 Future <List<Data>> fetchData() async {
   final response = await http
-      .get(Uri.parse('http://localhost/klab/api/members/members.php'));
+      .get(Uri.parse('https://klabapp.klabstartupsacademy.rw/api/members/members.php'));
   if (response.statusCode == 200) {
     List jsonResponse = json.decode(response.body);
 
@@ -181,7 +181,7 @@ class _UploadAnnouncementPageState extends State<UploadAnnouncementPage> {
     // url to registration php script
     print("Submitting");
     var url = Uri.http(
-        'http://klabchat.devslab.io/', '/announcement/announcement.php', {'q': '{http}'});
+        'https://klabapp.klabstartupsacademy.rw/api/announcement/announcement.php', {'q': '{http}'});
 
     //json maping user entered details
     Map mapeddate = {
