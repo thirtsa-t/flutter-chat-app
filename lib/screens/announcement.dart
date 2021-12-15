@@ -31,7 +31,7 @@ class _AnnouncementsScreenState extends State<AnnouncementsScreen>
   }
 
   void loadData() async {
-    var response = await Dio().get("http://localhost/klab/api/announcements/");
+    var response = await Dio().get("https://klabapp.klabstartupsacademy.rw/api/announcements/");
 
     print(response.data['data']);
     setState(() {
