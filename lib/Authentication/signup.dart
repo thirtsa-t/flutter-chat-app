@@ -4,8 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ui/Authentication/login.dart';
 import 'inputdecoration.dart';
-import 'package:http/http.dart' as http;
-
+// import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 
 class RegistrationScreen extends StatefulWidget {
   @override
@@ -224,30 +224,37 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   Future RegistrationUser() async {
     // url to registration php script
     print("submitting");
-    var url = Uri.http(
-        'klabapp.klabstartupsacademy.rw', '/api/members/register.php', {'q': '{http}'});
+    // var url = Uri.http(
+    //     'klabapp.klabstartupsacademy.rw', '/api/members/register.php', {'q': '{http}'});
 
-    //json maping user entered details
-    Map mapeddate = {
+    // //json maping user entered details
+    // Map mapeddate = {
+    //   'category_id': "1",
+    //   'member_fname': _fname.text,
+    //   'member_lname': _lname.text,
+    //   'member_email': _email.text,
+    //   'member_phone': _phone.text,
+    //   'member_password': _password.text
+    // };
+    // //send  data using http post to our php code
+    // http.Response reponse = await http.post(url, body: mapeddate);
+
+    //getting response from php code, here
+   var response = await Dio(BaseOptions(
+    )).post("https://klabapp.klabstartupsacademy.rw/api/members/register.php",data: FormData.fromMap({
       'category_id': "1",
-      'member_fname': _fname.text,
-      'member_lname': _lname.text,
+       'member_fname': _fname.text,
+       'member_lname': _lname.text,
       'member_email': _email.text,
       'member_phone': _phone.text,
       'member_password': _password.text
-    };
-    //send  data using http post to our php code
-    http.Response reponse = await http.post(url, body: mapeddate);
+    }));
+     print(response);
 
-    //getting response from php code, here
-    var data = jsonDecode(reponse.body);
-    print("DATA: ${data}");
+     if (response.data['code'] == 200) {
+      var message = response.data['message'];
+      print(message);
 
-
-    if(data["code"] ==200)
-      {
-        var message = data["message"];
-        print(message);
 
         final snackBar = SnackBar(
           content: Text(message),
@@ -263,13 +270,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         Navigator.push(context, CupertinoPageRoute(builder: (context)=> SigninScreen()));
 
       }else{
-      var message = data["message"];
+      var message = response.data["message"];
       print(message);
 
       final snackBar = SnackBar(
         content: Text(message),
         action: SnackBarAction(
-          label: 'Ok',
+          label: 'Signin',
           onPressed: () {
 
           },
