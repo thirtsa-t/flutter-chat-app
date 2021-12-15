@@ -84,6 +84,7 @@ class _SigninScreenState extends State<SigninScreen> {
                     controller: _password,
                     obscureText: true,
                     keyboardType: TextInputType.text,
+                      style: TextStyle(color: Colors.white),
                     
                     decoration: buildInputDecoration(Icons.lock, "Password"),
                     validator: (value) {

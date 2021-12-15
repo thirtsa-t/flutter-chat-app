@@ -1,8 +1,11 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:ui/screens/announcement.dart';
+import 'package:ui/screens/bottom_nav_screen.dart';
 
 Future<List<Data>> fetchData() async {
   final response = await http.get(Uri.parse(
@@ -57,10 +60,9 @@ class _UploadAnnouncementPageState extends State<UploadAnnouncementPage> {
 
   @override
   Widget build(BuildContext context) {
-    backgroundColor:
-    Color(0xFFF282d36);
+    backgroundColor:Color(0xFFF282d36);
     return Scaffold(
-        backgroundColor: Color(0xFFF282d36),
+        backgroundColor:  Color(0xff313a4a),
         appBar: AppBar(
           title: Text(
             "Add Announcement",
@@ -81,48 +83,27 @@ class _UploadAnnouncementPageState extends State<UploadAnnouncementPage> {
               )),
         ),
         body: Center(
-            // child: FutureBuilder <List<Data>>(
-            // future: futureData,
-            // builder: (context, snapshot) {
-            //   if (snapshot.hasData) {
-            //     List<Data>? data = snapshot.data;
+              
             child: SingleChildScrollView(
           child: Form(
             key: _formkey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // CircleAvatar(
-                //   radius: 70,
-                //   // child: Image.asset("assets/images/klab.png"),
-                // ),
-                // SizedBox(
-                //   height: 15,
-                // ),
-                // Padding(
-                //   padding: const EdgeInsets.only(
-                //       left: 10.0, right: 10.0, top: 10, bottom: 0),
-                //   //padding: EdgeInsets.symmetric(horizontal: 15),
-                //   child: TextField(
-                //     decoration: InputDecoration(
-                //        filled: true,
-
-                //        fillColor: Colors.white,
-                //         border: OutlineInputBorder(),
-                //         labelText: 'title',
-                //         hintText: 'Enter secure your title'),
-                //   ),
-                // ),
+              
                 Padding(
                   padding: const EdgeInsets.only(
                       left: 10.0, right: 10.0, top: 10, bottom: 0),
                   //padding: EdgeInsets.symmetric(horizontal: 15),
                   child: TextFormField(
                     controller: _announcement_content,
+                     style: TextStyle(color: Colors.white),
                     decoration: InputDecoration(
+                      
                       filled: true,
-                      fillColor: Colors.white,
+                      fillColor:  Colors.white,
                       labelText: 'Content',
+                      
                       hintText: 'Enter  your content',
                     ),
                     validator: (value) {
@@ -145,7 +126,7 @@ class _UploadAnnouncementPageState extends State<UploadAnnouncementPage> {
                   height: 50,
                   child: RaisedButton(
                     color: const Color(0xff313a4a),
-                    onPressed: () {
+                    onPressed: () { 
                       if (_formkey.currentState!.validate()) {
                         announcementUser();
                         print("Successful");
@@ -155,26 +136,16 @@ class _UploadAnnouncementPageState extends State<UploadAnnouncementPage> {
                     },
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50.0),
-                        side: BorderSide(color: Colors.white, width: 2)),
-                    textColor: Colors.white,
-                    child: Text("Change Password"),
+                       ),
+                    
+                    child: Text("Upload"),
                   ),
                 ),
               ],
             ),
           ),
         )));
-    //  }else if (snapshot.hasError) {
-    //       return Text("${snapshot.error}");
-    //     }
-    //     // By default show a loading spinner.
-    //     return CircularProgressIndicator();
-
-    //     }
-    //     )
-    //     ),
-
-    // );
+   
   }
 
   Future announcementUser() async {
@@ -194,6 +165,40 @@ class _UploadAnnouncementPageState extends State<UploadAnnouncementPage> {
     if (response.data['code'] == 200) {
       var message = response.data['message'];
       print(message);
+
+       final snackBar = SnackBar(
+        content: Text(message),
+        action: SnackBarAction(
+          label: 'Signin',
+          onPressed: () {
+            Navigator.push(context,
+                CupertinoPageRoute(builder: (context) => AnnouncementsScreen ()));
+            // Some code to undo the change.
+          },
+        ),
+      );
+
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      Navigator.push(
+          context, CupertinoPageRoute(builder: (context) =>AnnouncementsScreen()));
+    } else {
+      var message =  response.data['message'];
+      print(message);
+
+      final snackBar = SnackBar(
+        content: Text(message),
+        action: SnackBarAction(
+          label: 'Signin',
+          onPressed: () {
+            // Some code to undo the change.
+          },
+        ),
+      );
+
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
   }
 }
+  
+  
+
