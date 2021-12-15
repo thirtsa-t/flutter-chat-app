@@ -165,7 +165,8 @@ class _SigninScreenState extends State<SigninScreen> {
 
     // new codes
     var response = await Dio(BaseOptions(
-    )).post("https://klabapp.klabstartupsacademy.rw/api/members/login.php",data: FormData.fromMap({
+    )).post("https://klabapp.klabstartupsacademy.rw/api/members/login.php",
+    data: FormData.fromMap({
       "email": _email.text,
       "password": _password.text,
     }));

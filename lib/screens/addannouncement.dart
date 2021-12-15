@@ -184,7 +184,7 @@ class _UploadAnnouncementPageState extends State<UploadAnnouncementPage> {
         .post("https://klabapp.klabstartupsacademy.rw/api/announcements/publish",
             data: FormData.fromMap({
               'member_id': "1",
-              'announcement_content': 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is'
+              'announcement_content': _announcement_content.text,
             }));
     //json maping user entered details
 
