@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 InputDecoration buildInputDecoration(IconData icons, String hinttext) {
   return InputDecoration(
     hintText: hinttext,
-    
     prefixIcon: Icon(icons),
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(25.0),

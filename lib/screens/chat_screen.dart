@@ -15,6 +15,7 @@ class _ChatScreenState extends State<ChatScreen> {
   get style => null;
 
   _buildMessage(Message message, bool isMe) {
+     
     final Container msg = Container(
       margin: isMe
           ? EdgeInsets.only(
