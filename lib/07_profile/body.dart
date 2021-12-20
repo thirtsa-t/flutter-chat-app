@@ -3,11 +3,17 @@ import 'package:ui/07_profile/changepassword.dart';
 import 'package:ui/07_profile/updateprofile.dart';
 import 'package:ui/Authentication/login.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
+  @override
+  State<Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Color(0xFFF282d36),
+
         body: Center(
             child: SingleChildScrollView(
                 child: Form(

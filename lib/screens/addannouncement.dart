@@ -62,16 +62,17 @@ class _UploadAnnouncementPageState extends State<UploadAnnouncementPage> {
   Widget build(BuildContext context) {
     backgroundColor:Color(0xFFF282d36);
     return Scaffold(
-        backgroundColor:  Color(0xff313a4a),
+      backgroundColor:Color(0xFFF282d36),
+        
         appBar: AppBar(
           title: Text(
             "Add Announcement",
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: Colors.black,
+              color: Colors.white,
             ),
           ),
-          backgroundColor: Colors.white,
+        
           leading: IconButton(
               onPressed: () {
                 Navigator.pop(context);
@@ -79,7 +80,7 @@ class _UploadAnnouncementPageState extends State<UploadAnnouncementPage> {
               icon: Icon(
                 Icons.arrow_back_ios,
                 size: 20,
-                color: Colors.black,
+                color: Colors.white,
               )),
         ),
         body: Center(
@@ -97,15 +98,20 @@ class _UploadAnnouncementPageState extends State<UploadAnnouncementPage> {
                   //padding: EdgeInsets.symmetric(horizontal: 15),
                   child: TextFormField(
                     controller: _announcement_content,
-                     style: TextStyle(color: Colors.white),
+                     
                     decoration: InputDecoration(
                       
                       filled: true,
-                      fillColor:  Colors.white,
+                      fillColor:   Color(0xff313a4a),
                       labelText: 'Content',
+                       labelStyle: TextStyle(
+                        color: Colors.white,
+                       ),
+                       hintText: 'Enter  your content',
                       
-                      hintText: 'Enter  your content',
                     ),
+                     
+                    
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return "Please enter your content";
@@ -138,7 +144,11 @@ class _UploadAnnouncementPageState extends State<UploadAnnouncementPage> {
                         borderRadius: BorderRadius.circular(50.0),
                        ),
                     
-                    child: Text("Upload"),
+                    
+                    child: Text("Upload",
+                    style: TextStyle(color: Colors.white),
+                    ),
+                    
                   ),
                 ),
               ],

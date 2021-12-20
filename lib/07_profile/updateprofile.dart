@@ -1,7 +1,28 @@
+import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ui/07_profile/body.dart';
 import 'package:ui/utilities/constants.dart';
 
-class UpdateProfile extends StatelessWidget {
+class UpdateProfile extends StatefulWidget {
+
+  @override
+  State<UpdateProfile> createState() => _UpdateProfileState();
+}
+
+class _UpdateProfileState extends State<UpdateProfile> {
+   TextEditingController _fname = TextEditingController();
+
+  TextEditingController _lname = TextEditingController();
+
+  TextEditingController _email = TextEditingController();
+
+  TextEditingController _phone = TextEditingController();
+
+   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+
+   
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,8 +32,15 @@ class UpdateProfile extends StatelessWidget {
         centerTitle: true,
         title: Text("Update Profile"),
       ),
-      body: ListView(
-        children: <Widget>[
+       body: Center(
+      child: SingleChildScrollView(
+          child: Form(
+            key: _formkey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget> [
+            
+            
           Container(
             margin: EdgeInsets.only(
                 top: 10.0, bottom: 10.0, right: 20.0, left: 20.0),
@@ -20,7 +48,8 @@ class UpdateProfile extends StatelessWidget {
             alignment: Alignment.centerLeft,
             decoration: kBoxDecorationStyle,
             height: 60.0,
-            child: TextField(
+            child: TextFormField(
+              controller: _fname,
               style: TextStyle(
                 color: Colors.white,
                 fontFamily: 'OpenSans',
@@ -35,6 +64,14 @@ class UpdateProfile extends StatelessWidget {
                 hintText: 'Enter your New Name',
                 hintStyle: kHintTextStyle,
               ),
+              validator: (value) {
+                 if (value == null || value.isEmpty) {
+                    return "Please enter your first name";
+                  }
+
+                  return null;
+                },
+                 onSaved: (fname) {},
             ),
           ),
           Container(
@@ -44,7 +81,9 @@ class UpdateProfile extends StatelessWidget {
             alignment: Alignment.centerLeft,
             decoration: kBoxDecorationStyle,
             height: 60.0,
-            child: TextField(
+           child: TextFormField(
+              controller: _lname,
+              
               style: TextStyle(
                 color: Colors.white,
                 fontFamily: 'OpenSans',
@@ -53,12 +92,20 @@ class UpdateProfile extends StatelessWidget {
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.only(top: 14.0),
                 prefixIcon: Icon(
-                  Icons.email_outlined,
+                  Icons.person,
                   color: Colors.white,
                 ),
-                hintText: 'Enter your Email',
+                hintText: 'Enter your New Name',
                 hintStyle: kHintTextStyle,
               ),
+              validator: (value) {
+                 if (value == null || value.isEmpty) {
+                    return "Please enter your last name";
+                  }
+
+                  return null;
+                },
+                 onSaved: (lname) {},
             ),
           ),
           Container(
@@ -68,8 +115,8 @@ class UpdateProfile extends StatelessWidget {
             alignment: Alignment.centerLeft,
             decoration: kBoxDecorationStyle,
             height: 60.0,
-            child: TextField(
-              keyboardType: TextInputType.emailAddress,
+            child: TextFormField(
+              controller: _email,
               style: TextStyle(
                 color: Colors.white,
                 fontFamily: 'OpenSans',
@@ -78,21 +125,75 @@ class UpdateProfile extends StatelessWidget {
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.only(top: 14.0),
                 prefixIcon: Icon(
-                  Icons.phone,
+                  Icons.person,
                   color: Colors.white,
                 ),
-                hintText: 'Enter your Phone Number',
+                hintText: 'Enter your email',
                 hintStyle: kHintTextStyle,
               ),
+              validator: (value) {
+                 if (value == null || value.isEmpty) {
+                    return "Please enter your first name";
+                  }
+
+                  return null;
+                },
+                 onSaved: (email) {},
             ),
           ),
+            Container(
+            margin: EdgeInsets.only(
+                top: 10.0, bottom: 10.0, right: 20.0, left: 20.0),
+            padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+            alignment: Alignment.centerLeft,
+            decoration: kBoxDecorationStyle,
+            height: 60.0,
+            child: TextFormField(
+              controller: _phone,
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'OpenSans',
+              ),
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                contentPadding: EdgeInsets.only(top: 14.0),
+                prefixIcon: Icon(
+                  Icons.person,
+                  color: Colors.white,
+                ),
+                hintText: 'Enter your phone',
+                hintStyle: kHintTextStyle,
+              ),
+              validator: (value) {
+                 if (value == null || value.isEmpty) {
+                    return "Please enter your phone";
+                  }
+
+                  return null;
+                },
+                 onSaved: (phone) {},
+            ),
+          ),
+
           Container(
              margin: EdgeInsets.only(
                 top: 10.0, bottom: 10.0, right: 20.0, left: 20.0),
             padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
             child: ElevatedButton(
               child: Text("Upload"),
-              onPressed: () {},
+              onPressed: () {
+
+                           Navigator.push(
+                        context,
+                         MaterialPageRoute(builder: (context) => Body()),
+                       );
+                  if (_formkey.currentState!.validate()) {
+                        UpdateProfileUser();
+                        print("Successful");
+                      } else {
+                        print("Unsuccessfull");
+                      }
+              },
               style: ElevatedButton.styleFrom(
                   primary: Color(0xff313a4a),
                   //border width and color
@@ -121,6 +222,63 @@ class UpdateProfile extends StatelessWidget {
           ),
         ],
       ),
+          )
+      )
+       )
     );
   }
+
+  Future UpdateProfileUser() async {
+    // url to registration php script
+    print("submitting");
+   
+    var response = await Dio(BaseOptions()).post(
+        "https://klabapp.klabstartupsacademy.rw/api/profile/updateProfile",
+        data: FormData.fromMap({
+         'member_id': '5',
+  'member_fname': _fname.text,
+  'member_lname': _lname.text,
+  'member_email': _email.text,
+  'member_phone': _phone
+        }));
+    print(response);
+
+    if (response.data['code'] == 200) {
+      var message = response.data['message'];
+      print(message);
+
+      final snackBar = SnackBar(
+        content: Text(message),
+        action: SnackBarAction(
+          label: 'password changed',
+          onPressed: () {
+            Navigator.push(context,
+                CupertinoPageRoute(builder: (context) => Body()));
+            // Some code to undo the change.
+          },
+        ),
+      );
+
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      Navigator.push(
+          context, CupertinoPageRoute(builder: (context) => Body()));
+    } else {
+      var message = response.data['message'];
+      print(message);
+
+      final snackBar = SnackBar(
+        content: Text(message),
+        action: SnackBarAction(
+          label: 'Update',
+          onPressed: () {
+            // Some code to undo the change.
+          },
+        ),
+      );
+
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    }
+  }
 }
+
+

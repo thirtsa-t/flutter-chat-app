@@ -5,24 +5,26 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ui/07_profile/body.dart';
 import 'package:ui/07_profile/updateprofile.dart';
 import 'package:ui/utilities/constants.dart';
 import 'package:http/http.dart' as http;
 import 'package:ui/screens/bottom_nav_screen.dart';
 
-class ChangePassword extends StatelessWidget {
+class ChangePassword extends StatefulWidget {
+  @override
+  State<ChangePassword> createState() => _ChangePasswordState();
+}
+
+class _ChangePasswordState extends State<ChangePassword> {
    TextEditingController _member_id = TextEditingController();
+
   TextEditingController _current_password = TextEditingController();
+
   TextEditingController _new_password= TextEditingController();
-
-
-
 
    final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
-  late BuildContext context;
-
-  
   @override
   Widget build(BuildContext context) {
    
@@ -187,7 +189,6 @@ class ChangePassword extends StatelessWidget {
 
   }
 
-
    Future ChangePasswordUser() async {
     // url to registration php script
     print("submitting");
@@ -209,7 +210,7 @@ class ChangePassword extends StatelessWidget {
     //getting response from php code, here
    var response = await Dio(BaseOptions(
     )).post("https://klabapp.klabstartupsacademy.rw/api/profile/changePassword",data: FormData.fromMap({
- 'member_id': '5',
+ 'member_id': '4',
   'current_password': _current_password.text,
   'new_password': _new_password.text,
     }));
@@ -226,7 +227,7 @@ class ChangePassword extends StatelessWidget {
           label: 'password changed',
           onPressed: () {
             Navigator.push(context,
-                CupertinoPageRoute(builder: (context) => UpdateProfile ()));
+                CupertinoPageRoute(builder: (context) => Body()));
             // Some code to undo the change.
           },
         ),
@@ -234,7 +235,7 @@ class ChangePassword extends StatelessWidget {
 
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
       Navigator.push(
-          context, CupertinoPageRoute(builder: (context) =>UpdateProfile()));
+          context, CupertinoPageRoute(builder: (context) =>Body()));
     } else {
       var message =  response.data['message'];
       print(message);
@@ -242,7 +243,7 @@ class ChangePassword extends StatelessWidget {
       final snackBar = SnackBar(
         content: Text(message),
         action: SnackBarAction(
-          label: 'password changed',
+          label: 'Update profile',
           onPressed: () {
             // Some code to undo the change.
           },

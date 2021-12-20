@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ui/Authentication/signup.dart';
 import 'package:ui/screens/bottom_nav_screen.dart';
+import 'package:ui/screens/forgotpasswordscreen.dart';
+import 'package:ui/utilities/constants.dart';
 import 'inputdecoration.dart';
 // import 'package:http/http.dart' as http;
 import 'package:dio/dio.dart';
@@ -120,29 +122,63 @@ class _SigninScreenState extends State<SigninScreen> {
                     child: Text("Signin"),
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      "Don't have an account?",
-                      style: TextStyle(color: Colors.black),
-                    ),
-                    FlatButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => RegistrationScreen()),
-                          );
-                        },
-                        child: Text(
-                          "Register",
-                          style: TextStyle(
-                              color: Colors.lightBlue[200],
-                              fontWeight: FontWeight.bold),
-                        ))
-                  ],
-                )
+                 SizedBox(height: 50),
+           Container(
+      alignment: Alignment.center,
+       margin: EdgeInsets.only(top:10.0, bottom: 10.0, right: 20.0, left: 20.0),
+      child: FlatButton(
+        onPressed: () {
+                      Navigator.push(
+                       context,
+                       MaterialPageRoute(builder: (context) => forgotPasswordScreen()),
+                       );
+        },
+        // padding: EdgeInsets.only(bottom: 30, left: 10, right: 10),
+        child: Text(
+          'Forgot Password?',
+          style: TextStyle(color:Colors.white),
+        ),
+        
+      ),
+      
+    ),
+     SizedBox(height: 30),
+                Text(
+                  
+                       "-----------------------------OR-------------------------------",
+                       style: TextStyle(
+                         color: Colors.white,
+                         fontWeight: FontWeight.bold
+                       ),
+                ),
+                SizedBox(height: 30),
+                                      
+                       
+                SizedBox(
+                  width: 400,
+                  height: 50,
+                  child: RaisedButton(
+                    color: const Color(0xFF2B5894),
+                    onPressed: () {
+                                   Navigator.push(
+                       context,
+                        MaterialPageRoute(builder: (context) => SigninScreen()),
+                      );
+                      if (_formkey.currentState!.validate()) {
+                        RegistrationUser();
+                        print("Successful");
+                      } else {
+                        print("Unsuccessfull");
+                      }
+                    },
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50.0),
+                        side: BorderSide(color: Colors.blue, width: 2)),
+                    textColor: Colors.white,
+                    child: Text("Create Account"),
+                  ),
+                ),
+                 SizedBox(height: 50),
               ],
             ),
           ),
