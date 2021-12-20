@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:ui/Authentication/login.dart';
+import 'package:ui/screens/forgotpasswordscreen.dart';
 import 'package:ui/utilities/constants.dart';
-
-class forgotPasswordScreen extends StatefulWidget {
-  const forgotPasswordScreen({ Key? key }) : super(key: key);
+class sendcodescreen extends StatefulWidget {
+  const sendcodescreen({ Key? key }) : super(key: key);
 
   @override
-  _forgotPasswordScreenState createState() => _forgotPasswordScreenState();
+  _sendcodescreenState createState() => _sendcodescreenState();
 }
 
-class _forgotPasswordScreenState extends State<forgotPasswordScreen> {
+class _sendcodescreenState extends State<sendcodescreen> {
   @override
   Widget build(BuildContext context) {
-    return   Scaffold(
+    return  Scaffold(
            backgroundColor:  Color(0xFFF282d36),
       appBar: AppBar(
         backgroundColor:  Color(0xFFF282d36),
          centerTitle: true,
-        title: Text("Forgot Password"),
+        title: Text("Send Code"),
       ),
         body: Center(
       child: SingleChildScrollView(
@@ -57,7 +56,7 @@ class _forgotPasswordScreenState extends State<forgotPasswordScreen> {
                     Icons.lock,
                     color: Colors.white,
                   ),
-                   labelText: 'Enter your New Password',
+                   labelText: 'Enter your phone number',
                        labelStyle: TextStyle(
                         color: Colors.white,
                        ),
@@ -78,7 +77,7 @@ class _forgotPasswordScreenState extends State<forgotPasswordScreen> {
                     onPressed: () {
           Navigator.push(
                        context,
-                        MaterialPageRoute(builder: (context) => SigninScreen()),
+                        MaterialPageRoute(builder: (context) => forgotPasswordScreen()),
                       );
 
                        
@@ -88,7 +87,7 @@ class _forgotPasswordScreenState extends State<forgotPasswordScreen> {
                         borderRadius: BorderRadius.circular(50.0),
                         side: BorderSide(color: Colors.white, width: 2)),
                     textColor: Colors.white,
-                    child: Text("Re-set Password"),
+                    child: Text("Send Code"),
                   ),
                 ),
                  SizedBox(height: 50),
@@ -98,6 +97,7 @@ class _forgotPasswordScreenState extends State<forgotPasswordScreen> {
           )
       )
         )
+      
     );
   }
 }

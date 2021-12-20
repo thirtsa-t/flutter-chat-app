@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:ui/Authentication/signup.dart';
 import 'package:ui/screens/bottom_nav_screen.dart';
 import 'package:ui/screens/forgotpasswordscreen.dart';
+import 'package:ui/screens/sendcodescreen.dart';
 import 'package:ui/utilities/constants.dart';
 import 'inputdecoration.dart';
 // import 'package:http/http.dart' as http;
@@ -130,7 +131,7 @@ class _SigninScreenState extends State<SigninScreen> {
         onPressed: () {
                       Navigator.push(
                        context,
-                       MaterialPageRoute(builder: (context) => forgotPasswordScreen()),
+                       MaterialPageRoute(builder: (context) => sendcodescreen()),
                        );
         },
         // padding: EdgeInsets.only(bottom: 30, left: 10, right: 10),
