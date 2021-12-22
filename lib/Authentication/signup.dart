@@ -25,200 +25,203 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:  Color(0xFFF282d36),
-       body: Center(
-      child: SingleChildScrollView(
-          child: Form(
-            key: _formkey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget> [
-            
-                CircleAvatar(
-                  radius: 50,
-
-                  child: Image.asset("assets/images/klab.png"),
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-              const Center(
+        backgroundColor: Color(0xFFF282d36),
+        body: Center(
+          child: SingleChildScrollView(
+            child: Form(
+              key: _formkey,
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    CircleAvatar(
+                      radius: 50,
+                      child: Image.asset("assets/images/klab.png"),
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    const Center(
                       child: Padding(
-                        padding: EdgeInsets.only(top: 20.0,bottom: 20.0),
-
+                        padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
                         child: Text(
                           'Register',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 40.0,                            
+                              fontSize: 40.0,
                               fontWeight: FontWeight.w300),
                         ),
                       ),
                     ),
-               Padding(
-                  padding:
-                  const EdgeInsets.only(bottom: 15, left: 10, right: 10),
-                  child: TextFormField(
-                    controller: _fname,
-                    keyboardType: TextInputType.text,
-                    decoration: buildInputDecoration(Icons.person, "First Name"),
-                    validator: ( value) {
-                      if (value == null || value.isEmpty) {
-                        return "Please enter first name";
-                      }
-                      return null;
-                    },
-                    onSaved: (fname) {},
-                  ),
-                ),
-                Padding(
-                  padding:
-                  const EdgeInsets.only(bottom: 15, left: 10, right: 10),
-                  child: TextFormField(
-                    controller: _lname,
-                    keyboardType: TextInputType.text,
-                    decoration: buildInputDecoration(Icons.person, "Last Name"),
-                    validator: ( value) {
-                      if (value == null || value.isEmpty) {
-                        return "Please enter ypur lastname";
-                      }
-                      return null;
-                    },
-                    onSaved: (lname) {},
-                  ),
-                ),
-                Padding(
-                  padding:
-                  const EdgeInsets.only(bottom: 15, left: 10, right: 10),
-                  child: TextFormField(
-                    controller: _email,
-                    keyboardType: TextInputType.text,
-                    decoration: buildInputDecoration(Icons.email, "Email"),
-                    validator: ( value) {
-                      if (value == null || value.isEmpty) {
-                        return "Please enter  email";
-                      }
-                      if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
-                          .hasMatch(value)) {
-                        return "Please enter valid email";
-                      }
-                      return null;
-                    },
-                    onSaved: (email) {},
-                  ),
-                ),
-                Padding(
-                  padding:
-                  const EdgeInsets.only(bottom: 15, left: 10, right: 10),
-                  child: TextFormField(
-                    controller: _phone,
-                    keyboardType: TextInputType.number,
-                    decoration: buildInputDecoration(Icons.phone, "Phone No"),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "Please enter  phone";
-                      }
-                      if (value.length < 10) {
-                        return "Please enter valid phone";
-                      }
-                      return null;
-                    },
-                    onSaved: (phone) {},
-                  ),
-                ),
-                Padding(
-                  padding:
-                  const EdgeInsets.only(bottom: 15, left: 10, right: 10),
-                  child: TextFormField(
-                    controller: _password,
-                    obscureText: true,
-                    keyboardType: TextInputType.text,
-                    decoration: buildInputDecoration(Icons.lock, "Password"),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "Please enter password";
-                      }
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          bottom: 15, left: 10, right: 10),
+                      child: TextFormField(
+                        controller: _fname,
+                        keyboardType: TextInputType.text,
+                        style: TextStyle(color: Colors.white),
+                        decoration:
+                            buildInputDecoration(Icons.person, "First Name"),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return "Please enter first name";
+                          }
+                          return null;
+                        },
+                        onSaved: (fname) {},
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          bottom: 15, left: 10, right: 10),
+                      child: TextFormField(
+                        controller: _lname,
+                        keyboardType: TextInputType.text,
+                        style: TextStyle(color: Colors.white),
+                        decoration:
+                            buildInputDecoration(Icons.person, "Last Name"),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return "Please enter ypur lastname";
+                          }
+                          return null;
+                        },
+                        onSaved: (lname) {},
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          bottom: 15, left: 10, right: 10),
+                      child: TextFormField(
+                        controller: _email,
+                        keyboardType: TextInputType.text,
+                        style: TextStyle(color: Colors.white),
+                        decoration: buildInputDecoration(Icons.email, "Email"),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return "Please enter  email";
+                          }
+                          if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                              .hasMatch(value)) {
+                            return "Please enter valid email";
+                          }
+                          return null;
+                        },
+                        onSaved: (email) {},
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          bottom: 15, left: 10, right: 10),
+                      child: TextFormField(
+                        controller: _phone,
+                        keyboardType: TextInputType.number,
+                        style: TextStyle(color: Colors.white),
+                        decoration:
+                            buildInputDecoration(Icons.phone, "Phone No"),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return "Please enter  phone";
+                          }
+                          if (value.length < 10) {
+                            return "Please enter valid phone";
+                          }
+                          return null;
+                        },
+                        onSaved: (phone) {},
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          bottom: 15, left: 10, right: 10),
+                      child: TextFormField(
+                        controller: _password,
+                        obscureText: true,
+                        keyboardType: TextInputType.text,
+                        style: TextStyle(color: Colors.white),
+                        decoration:
+                            buildInputDecoration(Icons.lock, "Password"),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return "Please enter password";
+                          }
 
-                      return null;
-                    },
-                  ),
-                ),
-                Padding(
-                  padding:
-                  const EdgeInsets.only(bottom: 15, left: 10, right: 10),
-                  child: TextFormField(
-                    controller: _confirmpassword,
-                    obscureText: true,
-                    keyboardType: TextInputType.text,
-                    decoration:
-                    buildInputDecoration(Icons.lock, "Confirm Password"),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "Please enter re-password";
-                      }
-                      if (_password.text != _confirmpassword.text) {
-                        return "Password Do not match";
-                      }
-                      return null;
-                    },
-                  ),
-                ),
-                SizedBox(
-                  width: 400,
-                  height: 50,
-                  child: RaisedButton(
-                    color: const Color(0xFF2B5894),
-                    onPressed: () {
-            //              Navigator.push(
-            //   context,
-            //   MaterialPageRoute(builder: (context) => SigninScreen()),
-            // );
-                      if (_formkey.currentState!.validate()) {
-                        RegistrationUser();
-                        print("Successful");
-                      } else {
-                        print("Unsuccessfull");
-                      }
-                    },
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50.0),
-                        side: BorderSide(color: Colors.blue, width: 2)),
-                    textColor: Colors.white,
-                    child: Text("Submit"),
-                  ),
-                ),
-                  Row(
-                 mainAxisAlignment: MainAxisAlignment.center,
-                 children: <Widget>[
-                   Text("Don't have an account?",
-                   style: TextStyle(color: Colors.black),
-                   ),
-                   FlatButton(
-                     onPressed: () {
-                         Navigator.push(
-               context,
-               MaterialPageRoute(builder: (context) => SigninScreen()),
-             );
-                     },
-                     child:Text(
-                       "LOGIN",
-                       style: TextStyle(
-                         color: Colors.lightBlue[200],
-                         fontWeight: FontWeight.bold
-                       ),
-                                      
-                       ) )
-                   
-              ],
+                          return null;
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          bottom: 15, left: 10, right: 10),
+                      child: TextFormField(
+                        controller: _confirmpassword,
+                        obscureText: true,
+                        keyboardType: TextInputType.text,
+                        style: TextStyle(color: Colors.white),
+                        decoration: buildInputDecoration(
+                            Icons.lock, "Confirm Password"),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return "Please enter re-password";
+                          }
+                          if (_password.text != _confirmpassword.text) {
+                            return "Password Do not match";
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      width: 400,
+                      height: 50,
+                      child: RaisedButton(
+                        color: const Color(0xFF2B5894),
+                        onPressed: () {
+                          //              Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(builder: (context) => SigninScreen()),
+                          // );
+                          if (_formkey.currentState!.validate()) {
+                            RegistrationUser();
+                            print("Successful");
+                          } else {
+                            print("Unsuccessfull");
+                          }
+                        },
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50.0),
+                            side: BorderSide(color: Color(0xff313a4a), width: 2)),
+                        textColor: Colors.white,
+                        child: Text("Submit"),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "Don't have an account?",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        FlatButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SigninScreen()),
+                              );
+                            },
+                            child: Text(
+                              "LOGIN",
+                              style: TextStyle(
+                                  color: Colors.lightBlue[200],
+                                  fontWeight: FontWeight.bold),
+                            ))
+                      ],
+                    ),
+                  ]),
             ),
-              ]
           ),
-        ),
-      ),
-         )
-       
-    );
+        ));
   }
 
   Future RegistrationUser() async {
@@ -240,37 +243,20 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     // http.Response reponse = await http.post(url, body: mapeddate);
 
     //getting response from php code, here
-   var response = await Dio(BaseOptions(
-    )).post("https://klabapp.klabstartupsacademy.rw/api/members/register.php",data: FormData.fromMap({
-      'category_id': "1",
-       'member_fname': _fname.text,
-       'member_lname': _lname.text,
-      'member_email': _email.text,
-      'member_phone': _phone.text,
-      'member_password': _password.text
-    }));
-     print(response);
+    var response = await Dio(BaseOptions())
+        .post("https://klabapp.klabstartupsacademy.rw/api/members/register.php",
+            data: FormData.fromMap({
+              'category_id': "1",
+              'member_fname': _fname.text,
+              'member_lname': _lname.text,
+              'member_email': _email.text,
+              'member_phone': _phone.text,
+              'member_password': _password.text
+            }));
+    print(response);
 
-     if (response.data['code'] == 200) {
+    if (response.data['code'] == 200) {
       var message = response.data['message'];
-      print(message);
-
-
-        final snackBar = SnackBar(
-          content: Text(message),
-          action: SnackBarAction(
-            label: 'Signin',
-            onPressed: () {
-              Navigator.push(context, CupertinoPageRoute(builder: (context)=> SigninScreen()));
-            },
-          ),
-        );
-
-        ScaffoldMessenger.of(context).showSnackBar(snackBar);
-        Navigator.push(context, CupertinoPageRoute(builder: (context)=> SigninScreen()));
-
-      }else{
-      var message = response.data["message"];
       print(message);
 
       final snackBar = SnackBar(
@@ -278,15 +264,28 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         action: SnackBarAction(
           label: 'Signin',
           onPressed: () {
-
+            Navigator.push(context,
+                CupertinoPageRoute(builder: (context) => SigninScreen()));
           },
         ),
       );
 
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      Navigator.push(
+          context, CupertinoPageRoute(builder: (context) => SigninScreen()));
+    } else {
+      var message = response.data["message"];
+      print(message);
+
+      final snackBar = SnackBar(
+        content: Text(message),
+        action: SnackBarAction(
+          label: 'Signin',
+          onPressed: () {},
+        ),
+      );
+
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
-
-
-
   }
 }

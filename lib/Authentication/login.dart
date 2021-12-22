@@ -25,11 +25,9 @@ class _SigninScreenState extends State<SigninScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:  Color(0xFFF282d36),
+      backgroundColor: Color(0xFFF282d36),
       body: Center(
-        
         child: SingleChildScrollView(
-          
           child: Form(
             key: _formkey,
             child: Column(
@@ -58,12 +56,10 @@ class _SigninScreenState extends State<SigninScreen> {
                 Padding(
                   padding:
                       const EdgeInsets.only(bottom: 15, left: 10, right: 10),
-                      
                   child: TextFormField(
                     controller: _email,
                     keyboardType: TextInputType.text,
                     style: TextStyle(color: Colors.white),
-                    
                     decoration: buildInputDecoration(Icons.email, "Email"),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -77,18 +73,15 @@ class _SigninScreenState extends State<SigninScreen> {
                     },
                     onSaved: (email) {},
                   ),
-                  
                 ),
                 Padding(
                   padding:
                       const EdgeInsets.only(bottom: 15, left: 10, right: 10),
                   child: TextFormField(
-                    
                     controller: _password,
                     obscureText: true,
                     keyboardType: TextInputType.text,
-                      style: TextStyle(color: Colors.white),
-                    
+                    style: TextStyle(color: Colors.white),
                     decoration: buildInputDecoration(Icons.lock, "Password"),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -99,6 +92,7 @@ class _SigninScreenState extends State<SigninScreen> {
                     },
                   ),
                 ),
+                SizedBox(height: 30),
                 SizedBox(
                   width: 400,
                   height: 50,
@@ -117,53 +111,48 @@ class _SigninScreenState extends State<SigninScreen> {
                       }
                     },
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50.0),
-                        side: BorderSide(color: Colors.blue, width: 2)),
+                        borderRadius: BorderRadius.circular(20.0),
+                        side: BorderSide(color: Color(0xff313a4a), width: 1.5)),
                     textColor: Colors.white,
                     child: Text("Signin"),
                   ),
                 ),
-                 SizedBox(height: 50),
-           Container(
-      alignment: Alignment.center,
-       margin: EdgeInsets.only(top:10.0, bottom: 10.0, right: 20.0, left: 20.0),
-      child: FlatButton(
-        onPressed: () {
+                SizedBox(height: 20),
+                Container(
+                  alignment: Alignment.center,
+                  margin: EdgeInsets.only(
+                      top: 10.0, bottom: 10.0, right: 20.0, left: 20.0),
+                  child: FlatButton(
+                    onPressed: () {
                       Navigator.push(
-                       context,
-                       MaterialPageRoute(builder: (context) => sendcodescreen()),
-                       );
-        },
-        // padding: EdgeInsets.only(bottom: 30, left: 10, right: 10),
-        child: Text(
-          'Forgot Password?',
-          style: TextStyle(color:Colors.white),
-        ),
-        
-      ),
-      
-    ),
-     SizedBox(height: 30),
-                Text(
-                  
-                       "-----------------------------OR-------------------------------",
-                       style: TextStyle(
-                         color: Colors.white,
-                         fontWeight: FontWeight.bold
-                       ),
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => sendcodescreen()),
+                      );
+                    },
+                    // padding: EdgeInsets.only(bottom: 30, left: 10, right: 10),
+                    child: Text(
+                      'Forgot Password?',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
                 ),
-                SizedBox(height: 30),
-                                      
-                       
+                SizedBox(height: 10),
+                const Text(
+                  "-----------------------------  OR  -------------------------------",
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 10),
                 SizedBox(
                   width: 400,
                   height: 50,
                   child: RaisedButton(
                     color: const Color(0xFF2B5894),
                     onPressed: () {
-                                   Navigator.push(
-                       context,
-                        MaterialPageRoute(builder: (context) => SigninScreen()),
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => RegistrationScreen()),
                       );
                       if (_formkey.currentState!.validate()) {
                         RegistrationUser();
@@ -174,12 +163,12 @@ class _SigninScreenState extends State<SigninScreen> {
                     },
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50.0),
-                        side: BorderSide(color: Colors.blue, width: 2)),
+                        side: BorderSide(color: Color(0xff313a4a), width: 2)),
                     textColor: Colors.white,
                     child: Text("Create Account"),
                   ),
                 ),
-                 SizedBox(height: 50),
+                SizedBox(height: 50),
               ],
             ),
           ),
@@ -202,12 +191,12 @@ class _SigninScreenState extends State<SigninScreen> {
     //
 
     // new codes
-    var response = await Dio(BaseOptions(
-    )).post("https://klabapp.klabstartupsacademy.rw/api/members/login.php",
-    data: FormData.fromMap({
-      "email": _email.text,
-      "password": _password.text,
-    }));
+    var response = await Dio(BaseOptions())
+        .post("https://klabapp.klabstartupsacademy.rw/api/members/login.php",
+            data: FormData.fromMap({
+              "email": _email.text,
+              "password": _password.text,
+            }));
 
     // end new codes
 
@@ -235,7 +224,7 @@ class _SigninScreenState extends State<SigninScreen> {
       Navigator.push(
           context, CupertinoPageRoute(builder: (context) => BottomNavScreen()));
     } else {
-      var message =  response.data['message'];
+      var message = response.data['message'];
       print(message);
 
       final snackBar = SnackBar(

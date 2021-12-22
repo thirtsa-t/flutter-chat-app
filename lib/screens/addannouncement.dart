@@ -65,6 +65,8 @@ class _UploadAnnouncementPageState extends State<UploadAnnouncementPage> {
       backgroundColor:Color(0xFFF282d36),
         
         appBar: AppBar(
+          backgroundColor:Color(0xFFF282d36),
+        
           title: Text(
             "Add Announcement",
             textAlign: TextAlign.center,
