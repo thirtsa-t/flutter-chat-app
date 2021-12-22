@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ui/Authentication/inputdecoration.dart';
 import 'package:ui/screens/enteryourcode.dart';
 import 'package:ui/screens/forgotpasswordscreen.dart';
 import 'package:ui/utilities/constants.dart';
@@ -40,36 +41,16 @@ class _sendcodescreenState extends State<sendcodescreen> {
                           SizedBox(
                             height: 15,
                           ),
-                          Container(
-                            margin: EdgeInsets.only(
-                                top: 10.0,
-                                bottom: 10.0,
-                                right: 20.0,
-                                left: 20.0),
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 20.0, vertical: 10.0),
-                            alignment: Alignment.centerLeft,
-                            decoration: kBoxDecorationStyle,
-                            height: 60.0,
+
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                bottom: 15, left: 10, right: 10),
                             child: TextFormField(
                               controller: _phone,
-                              keyboardType: TextInputType.text,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'OpenSans',
-                              ),
-                              decoration: const InputDecoration(
-                                border: InputBorder.none,
-                                contentPadding: EdgeInsets.only(top: 14.0),
-                                prefixIcon: Icon(
-                                  Icons.person,
-                                  color: Colors.white,
-                                ),
-                                labelText: 'Enter your phone number',
-                                labelStyle: TextStyle(
-                                  color: Colors.white,
-                                ),
-                              ),
+                              keyboardType: TextInputType.number,
+                              style: TextStyle(color: Colors.white),
+                              decoration:
+                              buildInputDecoration(Icons.phone, "Phone No"),
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return "Please enter  phone";
@@ -125,7 +106,7 @@ class _sendcodescreenState extends State<sendcodescreen> {
     // print(_phone);
     var response = await Dio(BaseOptions()).post(
         "https://klabapp.klabstartupsacademy.rw/api/reset_password/index.php",
-        data: FormData.fromMap({'member_phone': _phone}));
+        data: FormData.fromMap({'member_phone': _phone.text}));
     print(response);
 
     if (response.data['code'] == 200) {
