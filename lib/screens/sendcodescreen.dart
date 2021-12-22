@@ -76,11 +76,11 @@ class _sendcodescreenState extends State<sendcodescreen> {
                             child: RaisedButton(
                               color: const Color(0xff313a4a),
                               onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => EnterCodecreen()),
-                                );
+                                // Navigator.push(
+                                //   context,
+                                //   MaterialPageRoute(
+                                //       builder: (context) => EnterCodecreen()),
+                                // );
                                 if (_formkey.currentState!.validate()) {
                                   SendCodeUser();
                                   print("Successful");
@@ -121,7 +121,7 @@ class _sendcodescreenState extends State<sendcodescreen> {
             Navigator.push(
                 context,
                 CupertinoPageRoute(
-                    builder: (context) => forgotPasswordScreen()));
+                    builder: (context) => EnterCodecreen()));
             // Some code to undo the change.
           },
         ),
@@ -129,7 +129,7 @@ class _sendcodescreenState extends State<sendcodescreen> {
 
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
       Navigator.push(context,
-          CupertinoPageRoute(builder: (context) => forgotPasswordScreen()));
+          CupertinoPageRoute(builder: (context) => EnterCodecreen()));
     } else {
       var message = response.data['message'];
       print(message);
