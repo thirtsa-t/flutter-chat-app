@@ -10,6 +10,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  bool tappedYes = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -190,11 +191,15 @@ class _BodyState extends State<Body> {
                   padding: EdgeInsets.all(20),
                   shape: RoundedRectangleBorder(),
                   color: Color(0xff313a4a),
-                  onPressed: () {
-                     Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => DeleteAccountScreen()),
-                    );
+                  onPressed: ()async {
+          final action =
+              await Dialogs.yesAbortDialog(context, 'Delete Account ', 'Are Sure you want to delete the account');
+          if (action == DialogAction.yes) {
+             setState(() => tappedYes = true);
+          } else {
+            setState(() => tappedYes = false);
+            
+          }
                   },
                   child: Row(
                     children: [

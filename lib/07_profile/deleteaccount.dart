@@ -1,34 +1,44 @@
  
- import 'package:flutter/material.dart';
- class DeleteAccountScreen extends StatefulWidget {
-  const DeleteAccountScreen({ Key? key }) : super(key: key);
+ 
+ 
+import 'package:flutter/material.dart';
 
-  @override
-  _DeleteAccountScreenState createState() => _DeleteAccountScreenState();
-}
+enum DialogAction { yes, abort }
 
-class _DeleteAccountScreenState extends State<DeleteAccountScreen> {
-  @override
-  Widget build(BuildContext context) {
-     return TextButton(
-      onPressed: () => showDialog<String>(
-        context: context,
-        builder: (BuildContext context) => AlertDialog(
-          title: const Text('AlertDialog Title'),
-          content: const Text('AlertDialog description'),
+class Dialogs {
+  static Future<DialogAction> yesAbortDialog(
+    BuildContext context,
+    String title,
+    String body,
+  ) async {
+    final action = await showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          title: Text(title),
+          content: Text(body),
           actions: <Widget>[
-            TextButton(
-              onPressed: () => Navigator.pop(context, 'Cancel'),
-              child: const Text('Cancel'),
+            FlatButton(
+              onPressed: () => Navigator.of(context).pop(DialogAction.abort),
+              child: const Text('No'),
             ),
-            TextButton(
-              onPressed: () => Navigator.pop(context, 'OK'),
-              child: const Text('OK'),
+            RaisedButton(
+              onPressed: () => Navigator.of(context).pop(DialogAction.yes),
+              child: const Text(
+                'Yes',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
             ),
           ],
-        ),
-      ),
-      child: const Text('Show Dialog'),
+        );
+      },
     );
+    return (action != null) ? action : DialogAction.abort;
   }
-  }
+}
