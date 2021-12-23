@@ -130,7 +130,7 @@ class _UploadAnnouncementPageState extends State<UploadAnnouncementPage> {
                       top: 10.0, bottom: 10.0, right: 50.0, left: 50.0),
                   padding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-                  width: 200,
+                  width: 400,
                   height: 50,
                   child: RaisedButton(
                     color: const Color(0xff313a4a),

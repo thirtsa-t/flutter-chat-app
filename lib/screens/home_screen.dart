@@ -39,6 +39,8 @@ class _HomeScreen extends State<HomeScreen>  with SingleTickerProviderStateMixin
 
   @override
   Widget build(BuildContext context) {
+    backgroundColor: Color(0xff282d36);
+
     return Scaffold(
 
       appBar: AppBar(

@@ -11,8 +11,8 @@ class RecentChats extends StatelessWidget {
     return Expanded(
       
     child: Container(
-       
-        decoration: BoxDecoration(
+      
+        decoration: const BoxDecoration(
           color: Color(0xff282d36),
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(30.0),

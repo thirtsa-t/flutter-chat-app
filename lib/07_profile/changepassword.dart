@@ -149,7 +149,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                            margin: EdgeInsets.only(top: 10.0, bottom: 10.0, right: 50.0, left: 50.0),
                   padding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-                  width: 200,
+                  width: 400,
                   height: 50,
                   
                   child: RaisedButton(

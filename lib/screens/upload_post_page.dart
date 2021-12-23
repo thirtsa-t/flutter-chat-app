@@ -1,7 +1,11 @@
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:ui/Authentication/inputdecoration.dart';
+import 'package:ui/screens/post_details_page.dart';
 
 class UploadPostPage extends StatefulWidget {
   const UploadPostPage({Key? key}) : super(key: key);
@@ -23,8 +27,9 @@ class _UploadPostPageState extends State<UploadPostPage> {
 
 
     return Scaffold(
-        backgroundColor: Colors.blueGrey.shade50,
+          backgroundColor: Color(0xFFF282d36),
         appBar: AppBar(
+           
           title: Text(
             "New post",
             
@@ -34,7 +39,7 @@ class _UploadPostPageState extends State<UploadPostPage> {
             
           ),
            centerTitle: true,
-          backgroundColor: Colors.white,
+          backgroundColor: Color(0xFFF282d36),
           leading: IconButton(
               onPressed: () {
                 Navigator.pop(context);
@@ -76,35 +81,40 @@ class _UploadPostPageState extends State<UploadPostPage> {
                   //         hintText: 'Enter  your title'),
                   //   ),
                   // ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        left: 10.0, right: 10.0, top: 10, bottom: 0),
+                   Padding(
+                  padding: const EdgeInsets.only(
+                      left: 10.0, right: 10.0, top: 10, bottom: 0),
+                  //padding: EdgeInsets.symmetric(horizontal: 15),
+                  child: TextFormField(
+                    controller: _post_content,
+                     
+                    decoration: InputDecoration(
+                      
+                      
+                      fillColor:   Color(0xff313a4a),
+                      labelText: 'Content',
+                       labelStyle: TextStyle(
+                        color: Colors.white,
+                       ),
+                       hintText: 'Enter  your content',
+                      
+                    ),
+                     
                     
-                    child: TextFormField(
-                      controller: _post_content,
-                      decoration: InputDecoration(
-                        
-                         filled: true,
-
-                         fillColor: Colors.white,
-                        labelText: 'Content',
-                        hintText: 'Enter  your content',),
-                         validator: ( value) {
+                    validator: (value) {
                       if (value == null || value.isEmpty) {
                         return "Please enter your content";
                       }
                       return null;
                     },
                     onSaved: (post_content) {},
-                      
-                        minLines: 7,
-                       maxLines: 7,
-                      
-                        
-                    ),
+                    minLines: 7,
+                    maxLines: 7,
                   ),
+                ),
+                
                    SizedBox(
-                  width: 200,
+                  width: 400,
                   height: 50,
                   child: RaisedButton(
                     color: const Color(0xFF2B5894),
@@ -124,6 +134,7 @@ class _UploadPostPageState extends State<UploadPostPage> {
                     child: Text("Upload"),
                   ),
                 ),
+                SizedBox(height: 50),
                 ],
               ),
             ),
@@ -155,21 +166,55 @@ class _UploadPostPageState extends State<UploadPostPage> {
 
   Future postUser() async {
     // url to registration php script
-    print("Submitting");
-    var url = Uri.http(
-        'klabchat.devslab.io', '/post/post.php', {'q': '{http}'});
-
+      print("Submitting");
+    var response = await Dio(BaseOptions())
+        .post("https://klabapp.klabstartupsacademy.rw/api/forum/addPost",
+            data: FormData.fromMap({
+              'member_id': "2",
+              'post_content': _post_content.text,
+            }));
     //json maping user entered details
-    Map mapeddate = {
-      'member_id': "1",
-      'post_content': _post_content.text,
-       };
-    //send  data using http post to our php code
-    http.Response reponse = await http.post(url, body: mapeddate);
 
-    //getting response from php code, here
-    var data = jsonDecode(reponse.body);
-    print("DATA: ${data}");
- 
+    //send  data using http post to our php code
+    print(response);
+
+    if (response.data['code'] == 200) {
+      var message = response.data['message'];
+      print(message);
+
+       final snackBar = SnackBar(
+        content: Text(message),
+        action: SnackBarAction(
+          label: 'Signin',
+          onPressed: () {
+            Navigator.push(context,
+                CupertinoPageRoute(builder: (context) => PostWidget ()));
+            // Some code to undo the change.
+          },
+        ),
+      );
+
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      Navigator.push(
+          context, CupertinoPageRoute(builder: (context) =>PostWidget()));
+    } else {
+      var message =  response.data['message'];
+      print(message);
+
+      final snackBar = SnackBar(
+        content: Text(message),
+        action: SnackBarAction(
+          label: 'Signin',
+          onPressed: () {
+            // Some code to undo the change.
+          },
+        ),
+      );
+
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    }
+  }
 }
-}
+  
+  
+
