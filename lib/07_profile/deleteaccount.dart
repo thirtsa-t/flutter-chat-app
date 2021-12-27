@@ -31,7 +31,7 @@ class Dialogs {
               child: const Text(
                 'Yes',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
               ),
             ),

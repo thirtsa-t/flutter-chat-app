@@ -145,29 +145,27 @@ class _ChangePasswordState extends State<ChangePassword> {
         //     ),
         //   ),
         // ),
-                         Container(
-                           margin: EdgeInsets.only(top: 10.0, bottom: 10.0, right: 50.0, left: 50.0),
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                        SizedBox(height: 30),
+                SizedBox(
                   width: 400,
                   height: 50,
-                  
                   child: RaisedButton(
-                    color:const Color(0xff313a4a),
+                    color: const Color(0xff313a4a),
                     onPressed: () {
-
-
-                       if (_formkey.currentState!.validate()) {
+                      //              Navigator.push(
+                      //  context,
+                      //   MaterialPageRoute(builder: (context) => BottomNavScreen()),
+                      // );
+                      if (_formkey.currentState!.validate()) {
                         ChangePasswordUser();
                         print("Successful");
                       } else {
                         print("Unsuccessfull");
                       }
                     },
-                    
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50.0),
-                        side: BorderSide(color: Colors.white, width: 2)),
+                        borderRadius: BorderRadius.circular(20.0),
+                        side: BorderSide(color: Color(0xff313a4a), width: 1.5)),
                     textColor: Colors.white,
                     child: Text("Change Password"),
                   ),

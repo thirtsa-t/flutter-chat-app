@@ -175,51 +175,31 @@ class _UpdateProfileState extends State<UpdateProfile> {
             ),
           ),
 
-          Container(
-             margin: EdgeInsets.only(
-                top: 10.0, bottom: 10.0, right: 20.0, left: 20.0),
-            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
-            child: ElevatedButton(
-              child: Text("Upload"),
-              onPressed: () {
-
-                           Navigator.push(
-                        context,
-                         MaterialPageRoute(builder: (context) => Body()),
-                       );
-                  if (_formkey.currentState!.validate()) {
+         SizedBox(height: 30),
+                SizedBox(
+                  width: 400,
+                  height: 50,
+                  child: RaisedButton(
+                    color: const Color(0xff313a4a),
+                    onPressed: () {
+                      //              Navigator.push(
+                      //  context,
+                      //   MaterialPageRoute(builder: (context) => BottomNavScreen()),
+                      // );
+                      if (_formkey.currentState!.validate()) {
                         UpdateProfileUser();
                         print("Successful");
                       } else {
                         print("Unsuccessfull");
                       }
-              },
-              style: ElevatedButton.styleFrom(
-                  primary: Color(0xff313a4a),
-                  //border width and color
-                  //elevation of button
-             
-
-              //          Container(
-              //            margin: EdgeInsets.only(top: 10.0, bottom: 10.0, right: 50.0, left: 50.0),
-              //   padding:
-              //       EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-              //   width: 200,
-              //   height: 50,
-
-              //   child: RaisedButton(
-              //     color:const Color(0xff313a4a),
-              //     onPressed: () {},
-              //     shape: RoundedRectangleBorder(
-              //         borderRadius: BorderRadius.circular(50.0),
-              //         side: BorderSide(color: Colors.white, width: 2)),
-              //     textColor: Colors.white,
-              //     child: Text("Upload"),
-              //   ),
-              // ),
-            ),
-            ),
-          ),
+                    },
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        side: BorderSide(color: Color(0xff313a4a), width: 1.5)),
+                    textColor: Colors.white,
+                    child: Text("Update"),
+                  ),
+                ),
         ],
       ),
           )

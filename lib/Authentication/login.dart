@@ -97,7 +97,7 @@ class _SigninScreenState extends State<SigninScreen> {
                   width: 400,
                   height: 50,
                   child: RaisedButton(
-                    color: const Color(0xFF2B5894),
+                    color: const Color(0xff313a4a),
                     onPressed: () {
                       //              Navigator.push(
                       //  context,
@@ -137,22 +137,44 @@ class _SigninScreenState extends State<SigninScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
-                const Text(
-                  "-----------------------------  OR  -------------------------------",
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                ),
+                // SizedBox(height: 10),
+                // const Text(
+                //   "  OR  ",
+                //   style: TextStyle(
+                //       color: Colors.white, fontWeight: FontWeight.bold),
+                // ),
+                Row(children: const <Widget>[
+                  Expanded(
+                    child: Divider(
+                      indent: 20.0,
+                      endIndent: 10.0,
+                      thickness: 1,
+                    ),
+                  ),
+                  Text(
+                    "OR",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  Expanded(
+                    child: Divider(
+                      indent: 10.0,
+                      endIndent: 20.0,
+                      thickness: 1,
+                    ),
+                  ),
+                ]),
+                
                 SizedBox(height: 10),
                 SizedBox(
                   width: 400,
                   height: 50,
                   child: RaisedButton(
-                    color: const Color(0xFF2B5894),
+                    color: const Color(0xff313a4a),
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => RegistrationScreen()),
+                        MaterialPageRoute(
+                            builder: (context) => RegistrationScreen()),
                       );
                       if (_formkey.currentState!.validate()) {
                         RegistrationUser();
@@ -162,8 +184,8 @@ class _SigninScreenState extends State<SigninScreen> {
                       }
                     },
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50.0),
-                        side: BorderSide(color: Color(0xff313a4a), width: 2)),
+                        borderRadius: BorderRadius.circular(20.0),
+                        side: BorderSide(color: Color(0xff313a4a), width: 1.5)),
                     textColor: Colors.white,
                     child: Text("Create Account"),
                   ),

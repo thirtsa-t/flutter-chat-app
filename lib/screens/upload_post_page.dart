@@ -34,7 +34,7 @@ class _UploadPostPageState extends State<UploadPostPage> {
             "New post",
             
             style: TextStyle(
-              color: Colors.black,
+              color: Colors.white,
             ),
             
           ),
@@ -47,7 +47,7 @@ class _UploadPostPageState extends State<UploadPostPage> {
               icon: Icon(
                 Icons.arrow_back_ios,
                 size: 20,
-                color: Colors.black,
+                color: Colors.white,
               )),
         ),
 
@@ -81,7 +81,7 @@ class _UploadPostPageState extends State<UploadPostPage> {
                   //         hintText: 'Enter  your title'),
                   //   ),
                   // ),
-                   Padding(
+            Padding(
                   padding: const EdgeInsets.only(
                       left: 10.0, right: 10.0, top: 10, bottom: 0),
                   //padding: EdgeInsets.symmetric(horizontal: 15),
@@ -90,7 +90,7 @@ class _UploadPostPageState extends State<UploadPostPage> {
                      
                     decoration: InputDecoration(
                       
-                      
+                      filled: true,
                       fillColor:   Color(0xff313a4a),
                       labelText: 'Content',
                        labelStyle: TextStyle(
@@ -112,12 +112,13 @@ class _UploadPostPageState extends State<UploadPostPage> {
                     maxLines: 7,
                   ),
                 ),
+                SizedBox(height: 50),
                 
-                   SizedBox(
+                  Container(
                   width: 400,
                   height: 50,
                   child: RaisedButton(
-                    color: const Color(0xFF2B5894),
+                    color: const Color(0xff313a4a),
                     onPressed: () {
             
                       if (_formkey.currentState!.validate()) {
@@ -128,9 +129,9 @@ class _UploadPostPageState extends State<UploadPostPage> {
                       }
                     },
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50.0),
-                        side: BorderSide(color: Colors.white, width: 2)),
-                    textColor: Colors.black,
+                        borderRadius: BorderRadius.circular(20.0),
+                        side: BorderSide(color: Colors.white, width: 1.5)),
+                    textColor: Colors.white,
                     child: Text("Upload"),
                   ),
                 ),
@@ -143,26 +144,9 @@ class _UploadPostPageState extends State<UploadPostPage> {
         );
   }
 
-  Widget imageProfile() {
-    return Stack(
-      children: <Widget>[
-     CircleAvatar(
-       backgroundImage: AssetImage("assets/images/klab.png"),
-     )
-      ]
-    );
-  }
- Widget nameTextField() {
-   return TextFormField(
-     decoration: InputDecoration(
-       border: OutlineInputBorder(
-         borderSide:BorderSide(
-           color: Colors. black,
-         )
-       )
-     ),
-   );
- }
+    
+ 
+ 
 
   Future postUser() async {
     // url to registration php script

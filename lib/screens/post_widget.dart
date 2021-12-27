@@ -1,42 +1,42 @@
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
 
 
 
-class PostWidget extends StatelessWidget {
+// class PostWidget extends StatelessWidget {
 
 
-  @override
-  Widget build(BuildContext context) {
-    return   
+//   @override
+//   Widget build(BuildContext context) {
+//     return   
           
-        Container(
-          margin: EdgeInsets.only(top:5, bottom:10),
-              color:Colors.white,
-              height: 180,
-              child: Column(
-                children: [
-                  FlutterLogo(size: 50,),
-                  SizedBox(height: 20,),                
-                  Text("KlAB App",style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18
-                  ),
-                  ),
-                  Text("thirtsaisimbi@gmail.com",style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15
-                  ),
-                  ),
-                ],
-              ),
-            );
+//         Container(
+//           margin: EdgeInsets.only(top:5, bottom:10),
+//               color:Colors.white,
+//               height: 180,
+//               child: Column(
+//                 children: [
+//                   FlutterLogo(size: 50,),
+//                   SizedBox(height: 20,),                
+//                   Text("KlAB App",style: TextStyle(
+//                     fontWeight: FontWeight.bold,
+//                     fontSize: 18
+//                   ),
+//                   ),
+//                   Text("thirtsaisimbi@gmail.com",style: TextStyle(
+//                     fontWeight: FontWeight.bold,
+//                     fontSize: 15
+//                   ),
+//                   ),
+//                 ],
+//               ),
+//             );
        
         
         
            
           
-  }
-}
+//   }
+// }
   
     
      

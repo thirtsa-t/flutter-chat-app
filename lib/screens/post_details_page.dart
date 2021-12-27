@@ -28,16 +28,15 @@ class PostWidget extends StatelessWidget {
             ),
           
           ],
-          leading: IconButton(
-            icon: Icon( Icons.person ),
-            color: Colors.white,
-            onPressed: () { 
-                Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => ProfilePage()),
-             );
-            },
-          ),
+           leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(
+                Icons.arrow_back_ios,
+                size: 20,
+                color: Colors.white,
+              )),
           ),
 
     body:ListView.builder(

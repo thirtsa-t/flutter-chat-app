@@ -125,11 +125,9 @@ class _UploadAnnouncementPageState extends State<UploadAnnouncementPage> {
                     maxLines: 7,
                   ),
                 ),
+                 SizedBox(height: 50),
                 Container(
-                  margin: EdgeInsets.only(
-                      top: 10.0, bottom: 10.0, right: 50.0, left: 50.0),
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                 
                   width: 400,
                   height: 50,
                   child: RaisedButton(
@@ -143,16 +141,16 @@ class _UploadAnnouncementPageState extends State<UploadAnnouncementPage> {
                       }
                     },
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50.0),
+                        borderRadius: BorderRadius.circular(20.0),
                        ),
                     
                     
                     child: Text("Upload",
                     style: TextStyle(color: Colors.white),
                     ),
-                    
-                  ),
+                                      ),
                 ),
+                 SizedBox(height: 50),
               ],
             ),
           ),
