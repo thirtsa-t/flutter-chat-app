@@ -97,7 +97,15 @@ class PostWidget extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Icon(Icons.more_horiz)
+                   IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(
+                Icons.more_horiz,
+                // size: 20,
+                color: Colors.white,
+              )),
                 ],
               ),
               SizedBox(

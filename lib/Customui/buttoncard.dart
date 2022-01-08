@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:ui/models/chatmodelpage.dart';
 
 class ButtonCard extends StatelessWidget {
-  const ButtonCard({Key ? key, required this.name, required this.icon}) : super(key: key);
+  const ButtonCard(
+      {Key? key,
+      required this.name,
+      required this.icon,
+      required IconData iconData})
+      : super(key: key);
   final String name;
   final IconData icon;
 
@@ -14,7 +19,7 @@ class ButtonCard extends StatelessWidget {
         child: Icon(
           icon,
           size: 26,
-          color: Colors.white,
+          color: Colors.black,
         ),
         backgroundColor: Color(0xff282d36),
       ),

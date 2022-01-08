@@ -169,25 +169,25 @@ class _HomeScreen extends State<HomeScreen>  with SingleTickerProviderStateMixin
             ),
           ],
         ),
-        floatingActionButton: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Container(
-            height:48,
-            child: FloatingActionButton(
-              backgroundColor: Colors.blueGrey[100],
-              onPressed: () {
-                     Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => SelectContacts()),
-             );
-              },
-              child: Icon(Icons.chat,color: Colors.blueGrey[900],
-              ),
-            ),
-          ),
-        ]
-        ),
+        // floatingActionButton: Column(
+        // mainAxisAlignment: MainAxisAlignment.end,
+        // children: [
+        //   Container(
+        //     height:48,
+        //     child: FloatingActionButton(
+        //       backgroundColor: Colors.blueGrey[100],
+        //       onPressed: () {
+        //              Navigator.push(
+        //       context,
+        //       MaterialPageRoute(builder: (context) => SelectContacts()),
+        //      );
+        //       },
+        //       child: Icon(Icons.chat,color: Colors.blueGrey[900],
+        //       ),
+        //     ),
+        
+        
+        
         );
   }
 }
