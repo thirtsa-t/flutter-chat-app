@@ -1,134 +1,203 @@
+import 'dart:convert';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:ui/models/members.dart';
 import 'package:ui/models/message_model.dart';
 import 'package:ui/screens/chat_screen.dart';
+import 'package:http/http.dart' as http;
 
+Future<List<Data>> fetchData() async {
+  final response = await http
+      .get(Uri.parse('https://klabapp.klabstartupsacademy.rw/api/members/'));
+  if (response.statusCode == 200) {
+    List jsonResponse = json.decode(response.body);
 
+    var data = jsonDecode(response.body);
 
-class RecentChats extends StatelessWidget {
+    print(data);
+
+    return jsonResponse.map((data) => new Data.fromJson(data)).toList();
+  } else {
+    throw Exception('Unexpected error occured!');
+  }
+}
+
+class Data {
+  final String member_name;
+
+  Data({
+    required this.member_name,
+  });
+
+  factory Data.fromJson(Map<String, dynamic> json) {
+    return Data(
+      member_name: json['member_name'],
+    );
+  }
+}
+
+// void main() => runApp(Members());
+class RecentChats extends StatefulWidget {
   @override
+  State<RecentChats> createState() => _RecentChatsState();
+}
+
+class _RecentChatsState extends State<RecentChats> {
+  late Future<List<Data>> futureData;
+
+  @override
+  void initState() {
+    super.initState();
+    futureData = fetchData();
+  }
+
   Widget build(BuildContext context) {
-      backgroundColor: Color(0xff282d36);
+    backgroundColor:
+    Color(0xff282d36);
+
+    
     return Expanded(
-      
-    child: Container(
-      
-        decoration: const BoxDecoration(
-          color: Color(0xff282d36),
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30.0),
-            topRight: Radius.circular(30.0),
-          ),
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30.0),
-            topRight: Radius.circular(30.0),
-          ),
-          child: ListView.builder(
-            itemCount: chats.length,
-            itemBuilder: (BuildContext context, int index) {
-              final Message chat = chats[index];
-              return GestureDetector(
-                onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => ChatScreen(
-                      user: chat.sender,
-                    ),
-                  ),
-                ),
-                child: Container(
-                  margin: EdgeInsets.only(top: 10.0, bottom: 10.0, right: 20.0),
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-                  decoration: BoxDecoration(
-                    color: chat.unread ?Color(0xff313a4a) : Color(0xff282d36),
+        child: FutureBuilder<List<Data>>(
+            future: futureData,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                List<Data>? data = snapshot.data;
+                child:
+                Container(
+                  decoration: const BoxDecoration(
+                    color: Color(0xff282d36),
                     borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(20.0),
-                      bottomRight: Radius.circular(20.0),
+                      topLeft: Radius.circular(30.0),
+                      topRight: Radius.circular(30.0),
                     ),
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          CircleAvatar(
-                            radius: 35.0,
-                            backgroundImage: AssetImage(chat.sender.imageUrl),
-                          ),
-                          SizedBox(width: 10.0),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                chat.sender.name,
-                                style: TextStyle(
-                                  color: Colors.grey[50],
-                                  fontSize: 15.0,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30.0),
+                      topRight: Radius.circular(30.0),
+                    ),
+                    child: ListView.builder(
+                      itemCount: chats.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        final Message chat = chats[index];
+                        return GestureDetector(
+                          onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => ChatScreen(
+                                user: chat.sender,
                               ),
-                              SizedBox(height: 5.0),
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.45,
-                                child: Text(
-                                  chat.text,
-                                  style: TextStyle(
-                                    color: Colors.grey,
-                                    fontSize: 15.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: <Widget>[
-                          Text(
-                            chat.time,
-                            style: TextStyle(
-                               color: Colors.grey,
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                          SizedBox(height: 5.0),
-                          chat.unread
-                              ? Container(
-                                  width: 40.0,
-                                  height: 20.0,
-                                  decoration: BoxDecoration(
-                                    color: Theme.of(context).primaryColor,
-                                    borderRadius: BorderRadius.circular(30.0),
-                                  ),
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    'NEW',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 12.0,
-                                      fontWeight: FontWeight.bold,
+                          child: Container(
+                            margin: EdgeInsets.only(
+                                top: 10.0, bottom: 10.0, right: 20.0),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 20.0, vertical: 10.0),
+                            decoration: BoxDecoration(
+                              color: chat.unread
+                                  ? Color(0xff313a4a)
+                                  : Color(0xff282d36),
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(20.0),
+                                bottomRight: Radius.circular(20.0),
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Row(
+                                  children: <Widget>[
+                                    CircleAvatar(
+                                      radius: 35.0,
+                                      backgroundImage:
+                                          AssetImage(chat.sender.imageUrl),
                                     ),
-                                  ),
-                                )
-                              : Text(''),
-                        ],
-                      ),
-                    ],
+                                    SizedBox(width: 10.0),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Text(
+                                          data[index].member_name,
+                                          style: TextStyle(
+                                            color: Colors.grey[50],
+                                            fontSize: 15.0,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        SizedBox(height: 5.0),
+                                        Container(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.45,
+                                          child: Text(
+                                            chat.text,
+                                            style: TextStyle(
+                                              color: Colors.grey,
+                                              fontSize: 15.0,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Column(
+                                  children: <Widget>[
+                                    Text(
+                                      chat.time,
+                                      style: TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 15.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(height: 5.0),
+                                    chat.unread
+                                        ? Container(
+                                            width: 40.0,
+                                            height: 20.0,
+                                            decoration: BoxDecoration(
+                                              color: Theme.of(context)
+                                                  .primaryColor,
+                                              borderRadius:
+                                                  BorderRadius.circular(30.0),
+                                            ),
+                                            alignment: Alignment.center,
+                                            child: Text(
+                                              'NEW',
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 12.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          )
+                                        : Text(''),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    ),
                   ),
-                ),
-              );
-            },
-          ),
-        ),
-      
-         
-     ),
-     
-    );
+                );
+              }
+                 else if (snapshot.hasError) {
+                return Text("${snapshot.error}");
+              }
+              // By default show a loading spinner.
+              return CircularProgressIndicator();
+              }
+            
+            )
+            );
   }
 }
